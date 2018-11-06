@@ -4,7 +4,7 @@ complate
 ========
 
 rendering HTML with expressive, declarative and composable abstractions (i.e.
-components) -- indepenent of any particular technology choice
+components) -- independent of any particular technology choice
 
 > say what you mean
 

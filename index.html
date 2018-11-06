@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>complate: declarative, component-oriented HTML templating</title><style>
+body {
+	max-width: 40em;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+p {
+	line-height: 1.4;
+}
+
+blockquote {
+	margin-left: 1em;
+	border-left: 3px solid #AAA;
+	padding-left: 0.5em;
+}
+
+blockquote + p {
+	margin-left: 1em;
+	font-size: 0.9em;
+}
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>complate</h1>
+<p>rendering HTML with expressive, declarative and composable abstractions (i.e.
+components) – independent of any particular technology choice</p>
+<blockquote>
+<p>say what you mean</p>
+</blockquote>
+<p>— <a href="https://infrequently.org/2017/10/web-components-the-long-game/">Web Components: The Long Game</a></p>
+<pre><code class="language-jsx">&lt;Card title=&quot;Hello World&quot;&gt;
+    &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
+    &lt;Button label=&quot;toggle&quot; /&gt;
+&lt;/Card&gt;
+</code></pre>
+<p>turns into</p>
+<pre><code class="language-html">&lt;article class=&quot;card&quot;&gt;
+    &lt;h3 class=&quot;card-title&quot;&gt;Hello World&lt;/h3&gt;
+
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card-controls&quot;&gt;
+        &lt;button type=&quot;button&quot;&gt;toggle&lt;/button&gt;
+    &lt;div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>complate leverages <a href="https://facebook.github.io/jsx/">JSX</a> to convert such
+markup abstractions (“macros”), optionally interspersed with JavaScript
+expressions, into HTML – either
+<a href="https://github.com/complate/complate-stream">on the server</a> or
+<a href="https://github.com/complate/complate-dom">on the client</a> side.</p>
+<p>Because the underlying library consists only of
+<a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">a few JavaScript functions</a>,
+complate macros can be used across a variety of tech stacks:</p>
+<ul>
+<li><a href="https://github.com/complate/complate-express">Express</a> (Node.js)</li>
+<li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
+<li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
+<li>etc.</li>
+</ul>
+<p>It’s also often used for
+<a href="https://github.com/complate/complate-fractal">pattern libraries</a> or as a
+<a href="https://github.com/complate/complate-ssg">static-site generator</a>.</p>
+<script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
