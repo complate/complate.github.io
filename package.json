@@ -1,0 +1,22 @@
+{
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/complate/complate.github.io.git"
+	},
+	"bugs": {
+		"url": "https://github.com/complate/complate.github.io/issues"
+	},
+	"scripts": {
+		"start": "npm-run-all compile --parallel compile:watch build:watch",
+		"build": "complate-ssg",
+		"build:watch": "nodemon -w ./dist/views.js -w content -e md -x 'npm run build' < /dev/null",
+		"compile": "faucet --compact",
+		"compile:watch": "npm run compile -- --watch"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"complate-ssg": "^0.19.3",
+		"nodemon": "^1.18.6",
+		"npm-run-all": "^4.1.3"
+	}
+}
