@@ -12,10 +12,8 @@ abstractions ("macros") as an encapsulation layer for our component. Consider
 the following macro:
 
 ```jsx
-function Navbar(_params, ...children) {
-  return <nav>
-    {children}
-  </nav>
+function Avatar({ src, alt }) {
+  return <div class="avatar"><img src={src} alt={alt} /></div>
 }
 ```
 
@@ -23,7 +21,7 @@ We can then use our macro in our application and it will be replaced with the
 markup we have defined.
 
 ```jsx
-<Navbar />
+<Avatar src="profile.jpg" alt="Portrait of Me" />
 ```
 
 This is _extremely powerful_ and solves a major pain point when writing
@@ -34,22 +32,30 @@ Here I need to be careful about pieces of my application which depend on the
 structure of my markup (e.g. CSS, JavaScript, tests), but with care many
 unnecessary breaking changes can be avoided.
 
-Another major benefit is that it is possible to write complex front-end
-components and others can _use_ the components easily, without having to
-understand how the component works under the hood.
+Another major benefit is that it reduces the cognitive overhead necessary for
+_using_ the component. In a team environment this can be especially useful
+because it is easy to use components even without the technical expertise to
+write them. However, when using a component it is always a good idea to be
+aware of the underlying markup.
 
 
 Composition
 -----------
 
 complate allows us to write components and then explicitly compose them
-together. For instance, when I write a navbar component, I can reuse the
-component in multiple projects and change the content of the navbar without
-affecting it.
+together. 
 
 The composition in complate looks very similar to the composition that is
 inherent in HTML: child components are passed into the parent component
 by defining them within the parent component tag.
+
+This allows us to focus on the definition of the component itself without
+worrying about the surrounding boilerplate or any details of the children
+components. If we need to change the children later, we can do this without
+influencing the parent component.
+
+Here we have use a Navbar component as an example of how components can be
+composed together:
 
 ```jsx
 function NavbarItem ({ href, current }, ...children) {
@@ -57,11 +63,24 @@ function NavbarItem ({ href, current }, ...children) {
 	return <a class={className} href={href}>{children}</a>
 }
 
+function Navbar (_params, ...children) {
+	return <nav class="navbar">
+		{children}
+	</nav>
+}
+
 <Navbar>
+	<a href="#profile">
+		<Avatar src="profile.jpg" alt="User Profile Picture" />
+	</a>
 	<NavbarItem href="/">Home</NavbarItem>
 	<NavbarItem href="/about" current>About</NavbarItem>
 </Navbar>
 ```
+
+Composition allows us to keep component definitions simple. If we need more
+complicated UI Elements, we can compose several components together to get
+the desired effect.
 
 Composition in complate is also powerful because we pass the children in
 explicitly in the macro definition. If we want to render the component
