@@ -3,14 +3,16 @@ title: Why complate?
 Why complate?
 =============
 
-## Abstraction
 
-When we are developing our frontend components, we can use complate markup
-abstractions ("macros") as an abstraction layer for our component. Consider
+Abstraction
+-----------
+
+When we are developing our front-end components, we can use complate markup
+abstractions ("macros") as an encapsulation layer for our component. Consider
 the following macro:
 
 ```jsx
-function Navbar (_props, ...children) {
+function Navbar(_params, ...children) {
   return <nav>
     {children}
   </nav>
@@ -25,16 +27,20 @@ markup we have defined.
 ```
 
 This is _extremely powerful_ and solves a major pain point when writing
-maintainable frontend code. Requirements change constantly. When a new request
-comes, or the corporate design has changed yet again, I can change the markup
-of my component _without breaking any part of my application that uses the
-component_.
+maintainable front-end code. Requirements change constantly. When a new
+requirement comes up, or I want to modify and improve existing markup, I can
+change the markup of my component and all instances are updated automatically.
+Here I need to be careful about pieces of my application which depend on the
+structure of my markup (e.g. CSS, JavaScript, tests), but with care many
+unnecessary breaking changes can be avoided.
 
-Another major benefit is that it is possible to write complex frontend
+Another major benefit is that it is possible to write complex front-end
 components and others can _use_ the components easily, without having to
 understand how the component works under the hood.
 
-## Composition
+
+Composition
+-----------
 
 complate allows us to write components and then explicitly compose them
 together. For instance, when I write a navbar component, I can reuse the
@@ -47,7 +53,7 @@ by defining them within the parent component tag.
 
 ```jsx
 function NavbarItem ({ href, current }, ...children) {
-	const className = current ? 'currentPage' : ''
+	const className = current ? 'current' : null
 	return <a class={className} href={href}>{children}</a>
 }
 
@@ -64,7 +70,9 @@ want to destructure the list of children and place them in different parts
 of our component, we can do this. If we want to iterate over the list of
 children and wrap each one in another component, we can do this.
 
-## Cross-Platform Support
+
+Cross-Platform Support
+----------------------
 
 With complate, components can be used across multiple platforms.
 [On the server](https://github.com/complate/complate-stream), we can integrate
@@ -76,8 +84,8 @@ complate macros in different tech stacks like:
 
 This is particularly useful in heterogenous software systems, where we may be
 running multiple services using different backend technologies, but we want to
-reuse frontend components between services. If this is the case, we can develop
-a [pattern library](https://github.com/complate/complate-fractal) using
+reuse front-end components between services. If this is the case, we can
+develop a [pattern library](https://github.com/complate/complate-fractal) using
 complate and then publish our macros for reuse in other services.
 
 We can also use complate

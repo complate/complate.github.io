@@ -22,10 +22,10 @@ blockquote + p {
 }
 </style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>Why complate?</h1>
 <h2>Abstraction</h2>
-<p>When we are developing our frontend components, we can use complate markup
-abstractions (“macros”) as an abstraction layer for our component. Consider
+<p>When we are developing our front-end components, we can use complate markup
+abstractions (“macros”) as an encapsulation layer for our component. Consider
 the following macro:</p>
-<pre><code class="language-jsx">function Navbar (_props, ...children) {
+<pre><code class="language-jsx">function Navbar(_params, ...children) {
   return &lt;nav&gt;
     {children}
   &lt;/nav&gt;
@@ -36,11 +36,13 @@ markup we have defined.</p>
 <pre><code class="language-jsx">&lt;Navbar /&gt;
 </code></pre>
 <p>This is <em>extremely powerful</em> and solves a major pain point when writing
-maintainable frontend code. Requirements change constantly. When a new request
-comes, or the corporate design has changed yet again, I can change the markup
-of my component <em>without breaking any part of my application that uses the
-component</em>.</p>
-<p>Another major benefit is that it is possible to write complex frontend
+maintainable front-end code. Requirements change constantly. When a new
+requirement comes up, or I want to modify and improve existing markup, I can
+change the markup of my component and all instances are updated automatically.
+Here I need to be careful about pieces of my application which depend on the
+structure of my markup (e.g. CSS, JavaScript, tests), but with care many
+unnecessary breaking changes can be avoided.</p>
+<p>Another major benefit is that it is possible to write complex front-end
 components and others can <em>use</em> the components easily, without having to
 understand how the component works under the hood.</p>
 <h2>Composition</h2>
@@ -52,7 +54,7 @@ affecting it.</p>
 inherent in HTML: child components are passed into the parent component
 by defining them within the parent component tag.</p>
 <pre><code class="language-jsx">function NavbarItem ({ href, current }, ...children) {
-	const className = current ? 'currentPage' : ''
+	const className = current ? 'current' : null
 	return &lt;a class={className} href={href}&gt;{children}&lt;/a&gt;
 }
 
@@ -78,8 +80,8 @@ complate macros in different tech stacks like:</p>
 </ul>
 <p>This is particularly useful in heterogenous software systems, where we may be
 running multiple services using different backend technologies, but we want to
-reuse frontend components between services. If this is the case, we can develop
-a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
+reuse front-end components between services. If this is the case, we can
+develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
 complate and then publish our macros for reuse in other services.</p>
 <p>We can also use complate
 <a href="https://github.com/complate/complate-dom">on the client</a> and as a
