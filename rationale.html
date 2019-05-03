@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Why complate?</title><style>
+body {
+	max-width: 40em;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+p {
+	line-height: 1.4;
+}
+
+blockquote {
+	margin-left: 1em;
+	border-left: 3px solid #AAA;
+	padding-left: 0.5em;
+}
+
+blockquote + p {
+	margin-left: 1em;
+	font-size: 0.9em;
+}
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>Why complate?</h1>
+<h2>Abstraction</h2>
+<p>When we are developing our frontend components, we can use complate markup
+abstractions (“macros”) as an abstraction layer for our component. Consider
+the following macro:</p>
+<pre><code class="language-jsx">function Navbar (_props, ...children) {
+  return &lt;nav&gt;
+    {children}
+  &lt;/nav&gt;
+}
+</code></pre>
+<p>We can then use our macro in our application and it will be replaced with the
+markup we have defined.</p>
+<pre><code class="language-jsx">&lt;Navbar /&gt;
+</code></pre>
+<p>This is <em>extremely powerful</em> and solves a major pain point when writing
+maintainable frontend code. Requirements change constantly. When a new request
+comes, or the corporate design has changed yet again, I can change the markup
+of my component <em>without breaking any part of my application that uses the
+component</em>.</p>
+<p>Another major benefit is that it is possible to write complex frontend
+components and others can <em>use</em> the components easily, without having to
+understand how the component works under the hood.</p>
+<h2>Composition</h2>
+<p>complate allows us to write components and then explicitly compose them
+together. For instance, when I write a navbar component, I can reuse the
+component in multiple projects and change the content of the navbar without
+affecting it.</p>
+<p>The composition in complate looks very similar to the composition that is
+inherent in HTML: child components are passed into the parent component
+by defining them within the parent component tag.</p>
+<pre><code class="language-jsx">function NavbarItem ({ href, current }, ...children) {
+	const className = current ? 'currentPage' : ''
+	return &lt;a class={className} href={href}&gt;{children}&lt;/a&gt;
+}
+
+&lt;Navbar&gt;
+	&lt;NavbarItem href=&quot;/&quot;&gt;Home&lt;/NavbarItem&gt;
+	&lt;NavbarItem href=&quot;/about&quot; current&gt;About&lt;/NavbarItem&gt;
+&lt;/Navbar&gt;
+</code></pre>
+<p>Composition in complate is also powerful because we pass the children in
+explicitly in the macro definition. If we want to render the component
+differently when there are no children passed in, we can do this. If we
+want to destructure the list of children and place them in different parts
+of our component, we can do this. If we want to iterate over the list of
+children and wrap each one in another component, we can do this.</p>
+<h2>Cross-Platform Support</h2>
+<p>With complate, components can be used across multiple platforms.
+<a href="https://github.com/complate/complate-stream">On the server</a>, we can integrate
+complate macros in different tech stacks like:</p>
+<ul>
+<li><a href="https://github.com/complate/complate-express">Express</a> (Node.js)</li>
+<li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
+<li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
+</ul>
+<p>This is particularly useful in heterogenous software systems, where we may be
+running multiple services using different backend technologies, but we want to
+reuse frontend components between services. If this is the case, we can develop
+a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
+complate and then publish our macros for reuse in other services.</p>
+<p>We can also use complate
+<a href="https://github.com/complate/complate-dom">on the client</a> and as a
+<a href="https://github.com/complate/complate-ssg">static-site generator</a>.</p>
+<script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
