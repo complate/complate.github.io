@@ -26,7 +26,9 @@ blockquote + p {
 abstractions (“macros”) as an encapsulation layer for our component. Consider
 the following macro:</p>
 <pre><code class="language-jsx">function Avatar({ src, alt }) {
-  return &lt;div class=&quot;avatar&quot;&gt;&lt;img src={src} alt={alt} /&gt;&lt;/div&gt;
+    return &lt;div class=&quot;avatar&quot;&gt;
+        &lt;img src={src} alt={alt} /&gt;
+    &lt;/div&gt;
 }
 </code></pre>
 <p>We can then use our macro in our application and it will be replaced with the
@@ -48,36 +50,36 @@ aware of the underlying markup.</p>
 <h2>Composition</h2>
 <p>complate allows us to write components and then explicitly compose them
 together.</p>
-<p>The composition in complate looks very similar to the composition that is
+<p>Composition in complate looks very similar to that
 inherent in HTML: child components are passed into the parent component
-by defining them within the parent component tag.</p>
+by placing them within the parent’s tags.</p>
 <p>This allows us to focus on the definition of the component itself without
 worrying about the surrounding boilerplate or any details of the children
 components. If we need to change the children later, we can do this without
 influencing the parent component.</p>
-<p>Here we have use a Navbar component as an example of how components can be
+<p>Here we use a navigation-bar component as an example of how components can be
 composed together:</p>
 <pre><code class="language-jsx">function NavbarItem ({ href, current }, ...children) {
-	const className = current ? 'current' : null
-	return &lt;a class={className} href={href}&gt;{children}&lt;/a&gt;
+    const className = current ? &quot;current&quot; : null
+    return &lt;a class={className} href={href}&gt;{children}&lt;/a&gt;
 }
 
 function Navbar (_params, ...children) {
-	return &lt;nav class=&quot;navbar&quot;&gt;
-		{children}
-	&lt;/nav&gt;
+    return &lt;nav class=&quot;navbar&quot;&gt;
+        {children}
+    &lt;/nav&gt;
 }
 
 &lt;Navbar&gt;
-	&lt;a href=&quot;#profile&quot;&gt;
-		&lt;Avatar src=&quot;profile.jpg&quot; alt=&quot;User Profile Picture&quot; /&gt;
-	&lt;/a&gt;
-	&lt;NavbarItem href=&quot;/&quot;&gt;Home&lt;/NavbarItem&gt;
-	&lt;NavbarItem href=&quot;/about&quot; current&gt;About&lt;/NavbarItem&gt;
+    &lt;a href=&quot;#profile&quot;&gt;
+        &lt;Avatar src=&quot;profile.jpg&quot; alt=&quot;User Profile Picture&quot; /&gt;
+    &lt;/a&gt;
+    &lt;NavbarItem href=&quot;/&quot;&gt;Home&lt;/NavbarItem&gt;
+    &lt;NavbarItem href=&quot;/about&quot; current&gt;About&lt;/NavbarItem&gt;
 &lt;/Navbar&gt;
 </code></pre>
 <p>Composition allows us to keep component definitions simple. If we need more
-complicated UI Elements, we can compose several components together to get
+complicated UI elements, we can compose several components together to get
 the desired effect.</p>
 <p>Composition in complate is also powerful because we pass the children in
 explicitly in the macro definition. If we want to render the component
@@ -95,7 +97,7 @@ complate macros in different tech stacks like:</p>
 <li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
 </ul>
 <p>This is particularly useful in heterogenous software systems, where we may be
-running multiple services using different backend technologies, but we want to
+running multiple services using different back-end technologies, but we want to
 reuse front-end components between services. If this is the case, we can
 develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
 complate and then publish our macros for reuse in other services.</p>

@@ -13,7 +13,9 @@ the following macro:
 
 ```jsx
 function Avatar({ src, alt }) {
-  return <div class="avatar"><img src={src} alt={alt} /></div>
+    return <div class="avatar">
+        <img src={src} alt={alt} />
+    </div>
 }
 ```
 
@@ -43,43 +45,43 @@ Composition
 -----------
 
 complate allows us to write components and then explicitly compose them
-together. 
+together.
 
-The composition in complate looks very similar to the composition that is
+Composition in complate looks very similar to that
 inherent in HTML: child components are passed into the parent component
-by defining them within the parent component tag.
+by placing them within the parent's tags.
 
 This allows us to focus on the definition of the component itself without
 worrying about the surrounding boilerplate or any details of the children
 components. If we need to change the children later, we can do this without
 influencing the parent component.
 
-Here we have use a Navbar component as an example of how components can be
+Here we use a navigation-bar component as an example of how components can be
 composed together:
 
 ```jsx
 function NavbarItem ({ href, current }, ...children) {
-	const className = current ? 'current' : null
-	return <a class={className} href={href}>{children}</a>
+    const className = current ? "current" : null
+    return <a class={className} href={href}>{children}</a>
 }
 
 function Navbar (_params, ...children) {
-	return <nav class="navbar">
-		{children}
-	</nav>
+    return <nav class="navbar">
+        {children}
+    </nav>
 }
 
 <Navbar>
-	<a href="#profile">
-		<Avatar src="profile.jpg" alt="User Profile Picture" />
-	</a>
-	<NavbarItem href="/">Home</NavbarItem>
-	<NavbarItem href="/about" current>About</NavbarItem>
+    <a href="#profile">
+        <Avatar src="profile.jpg" alt="User Profile Picture" />
+    </a>
+    <NavbarItem href="/">Home</NavbarItem>
+    <NavbarItem href="/about" current>About</NavbarItem>
 </Navbar>
 ```
 
 Composition allows us to keep component definitions simple. If we need more
-complicated UI Elements, we can compose several components together to get
+complicated UI elements, we can compose several components together to get
 the desired effect.
 
 Composition in complate is also powerful because we pass the children in
@@ -102,7 +104,7 @@ complate macros in different tech stacks like:
 * [Spring MVC](https://github.com/complate/complate-spring-mvc) (Java)
 
 This is particularly useful in heterogenous software systems, where we may be
-running multiple services using different backend technologies, but we want to
+running multiple services using different back-end technologies, but we want to
 reuse front-end components between services. If this is the case, we can
 develop a [pattern library](https://github.com/complate/complate-fractal) using
 complate and then publish our macros for reuse in other services.
