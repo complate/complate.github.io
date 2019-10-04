@@ -1,4 +1,4 @@
-/* global createElement */
+import { createElement } from "complate-stream";
 
 export default (title, desc) => <div>
 	<h3>{title}</h3>
