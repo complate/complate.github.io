@@ -1,8 +1,11 @@
 title: Why complate?
+h1: Why complate?
+subtitle: Benefits of designing frontend code using a component abstraction
 
-Why complate?
-=============
-
+One of the main goals for complate is to create a templating engine which
+allows us to write our frontend using components. Why would we want to do
+that? Let's look at some of the major benefits of a component based templating
+engine.
 
 Abstraction
 -----------
@@ -92,23 +95,14 @@ of our component, we can do this. If we want to iterate over the list of
 children and wrap each one in another component, we can do this.
 
 
-Cross-Platform Support
-----------------------
+Reusability
+-----------
 
-With complate, components can be used across multiple platforms.
-[On the server](https://github.com/complate/complate-stream), we can integrate
-complate macros in different tech stacks like:
+Another huge benefit of using complate is that we can reuse our components
+not only within our project, but also accross multiple platforms. These platforms
+include:
 
 * [Express](https://github.com/complate/complate-express) (Node.js)
 * [Ruby on Rails](https://github.com/complate/complate-ruby) (Ruby)
 * [Spring MVC](https://github.com/complate/complate-spring-mvc) (Java)
-
-This is particularly useful in heterogenous software systems, where we may be
-running multiple services using different back-end technologies, but we want to
-reuse front-end components between services. If this is the case, we can
-develop a [pattern library](https://github.com/complate/complate-fractal) using
-complate and then publish our macros for reuse in other services.
-
-We can also use complate
-[on the client](https://github.com/complate/complate-dom) and as a
-[static-site generator](https://github.com/complate/complate-ssg).
+* [Fractal](https://github.com/complate/complate-fractal)

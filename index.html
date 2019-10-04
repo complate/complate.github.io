@@ -5,6 +5,18 @@ body {
 	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
 }
 
+* + h2 {
+	margin-top: 5rem;
+}
+
+h2 {
+	font-size: 1.125rem;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: hsl(205.7, 6.3%, 56.1%);
+}
+
 .container {
 	max-width: 40rem;
 	margin: 0 auto;
@@ -60,6 +72,60 @@ blockquote + p {
 	margin-left: 1rem;
 	font-size: 0.9rem;
 }
-</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><div class="logo"><img src="complate_device_static-512.png"></div><div class="title-area"><h1>complate</h1><p>component based templating</p><p>expressive • declarative • composable • independent of any particular technology choice</p></div></div></div><div class="container"><p>Modern JavaScript frameworks come with batteries included and everything but the kitchen sink.</p>
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><div class="logo"><img src="complate_device_static-512.png"></div><div class="title-area"><h1>complate</h1><p>component based templating</p><p>expressive • declarative • composable • independent of any particular technology choice</p></div></div></div><div class="container"><p>Modern JavaScript frameworks come with batteries included and everything
+but the kitchen sink.</p>
 <p>We do <strong><em>a lot less</em></strong> and we think that is a good thing.</p>
+<p>complate provides a lightweight <a href="https://facebook.github.io/jsx/">JSX</a>
+implementation to allow us to write declarative component based templates
+(macros) without making assumptions about the underlying technology.</p>
+<pre><code class="language-jsx">&lt;Card title=&quot;Hello World&quot;&gt;
+    &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
+    &lt;Button label=&quot;toggle&quot; /&gt;
+&lt;/Card&gt;
+</code></pre>
+<p>turns into</p>
+<pre><code class="language-html">&lt;article class=&quot;card&quot;&gt;
+    &lt;h3 class=&quot;card-title&quot;&gt;Hello World&lt;/h3&gt;
+
+    &lt;div class=&quot;card-body&quot;&gt;
+        &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;card-controls&quot;&gt;
+        &lt;button type=&quot;button&quot;&gt;toggle&lt;/button&gt;
+    &lt;div&gt;
+&lt;/article&gt;
+</code></pre>
+<p>One of the reasons we developed complate is that we wanted to be able to
+write our frontends using components to get the benefits of
+<a href="rationale.html">abstraction and composition</a>, but we also wanted to make
+it easy to use our complate macros for server-side rendering.
+This is how complate differs from
+<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">web components</a>,
+which create and instantiate components in a client browser.</p>
+<p>The complate approach is similar to server-side rendering in component
+based frameworks like <a href="https://reactjs.org/">React</a> and
+<a href="https://vuejs.org/">Vue</a>, but because their implementations have to deal with
+client-side rendering as well, they are larger and more difficult to port to
+other platforms outside of the JavaScript ecosystem.</p>
+<p>This is where complate shines: because of the
+<a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">lean underlying implementation</a>, it is possible to write a component
+which can easily be reused across multiple projects on different platforms.</p>
+<h2>Cross-Platform Support</h2>
+<p>With complate, components can be used across multiple platforms.
+<a href="https://github.com/complate/complate-stream">On the server</a>, we can integrate
+complate macros in different tech stacks like:</p>
+<ul>
+<li><a href="https://github.com/complate/complate-express">Express</a> (Node.js)</li>
+<li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
+<li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
+</ul>
+<p>This is particularly useful in heterogenous software systems, where we may be
+running multiple services using different back-end technologies, but we want to
+reuse front-end components between services. If this is the case, we can
+develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
+complate and then publish our macros for reuse in other services.</p>
+<p>We can also use complate
+<a href="https://github.com/complate/complate-dom">on the client</a> and as a
+<a href="https://github.com/complate/complate-ssg">static-site generator</a>.</p>
 </div><script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>

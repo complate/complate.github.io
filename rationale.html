@@ -5,6 +5,18 @@ body {
 	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
 }
 
+* + h2 {
+	margin-top: 5rem;
+}
+
+h2 {
+	font-size: 1.125rem;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: hsl(205.7, 6.3%, 56.1%);
+}
+
 .container {
 	max-width: 40rem;
 	margin: 0 auto;
@@ -60,7 +72,10 @@ blockquote + p {
 	margin-left: 1rem;
 	font-size: 0.9rem;
 }
-</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="container"><h1>Why complate?</h1>
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><div class="logo"><img src="complate_device_static-512.png"></div><div class="title-area"><h1>Why complate?</h1><p>Benefits of designing frontend code using a component abstraction</p><p></p></div></div></div><div class="container"><p>One of the main goals for complate is to create a templating engine which
+allows us to write our frontend using components. Why would we want to do
+that? Let’s look at some of the major benefits of a component based templating
+engine.</p>
 <h2>Abstraction</h2>
 <p>When we are developing our front-end components, we can use complate markup
 abstractions (“macros”) as an encapsulation layer for our component. Consider
@@ -127,21 +142,14 @@ differently when there are no children passed in, we can do this. If we
 want to destructure the list of children and place them in different parts
 of our component, we can do this. If we want to iterate over the list of
 children and wrap each one in another component, we can do this.</p>
-<h2>Cross-Platform Support</h2>
-<p>With complate, components can be used across multiple platforms.
-<a href="https://github.com/complate/complate-stream">On the server</a>, we can integrate
-complate macros in different tech stacks like:</p>
+<h2>Reusability</h2>
+<p>Another huge benefit of using complate is that we can reuse our components
+not only within our project, but also accross multiple platforms. These platforms
+include:</p>
 <ul>
 <li><a href="https://github.com/complate/complate-express">Express</a> (Node.js)</li>
 <li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
 <li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
+<li><a href="https://github.com/complate/complate-fractal">Fractal</a></li>
 </ul>
-<p>This is particularly useful in heterogenous software systems, where we may be
-running multiple services using different back-end technologies, but we want to
-reuse front-end components between services. If this is the case, we can
-develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
-complate and then publish our macros for reuse in other services.</p>
-<p>We can also use complate
-<a href="https://github.com/complate/complate-dom">on the client</a> and as a
-<a href="https://github.com/complate/complate-ssg">static-site generator</a>.</p>
 </div><script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>

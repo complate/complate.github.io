@@ -6,6 +6,18 @@ body {
 	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
 }
 
+* + h2 {
+	margin-top: 5rem;
+}
+
+h2 {
+	font-size: 1.125rem;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: hsl(205.7, 6.3%, 56.1%);
+}
+
 .container {
 	max-width: 40rem;
 	margin: 0 auto;
