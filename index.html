@@ -77,7 +77,17 @@ but the kitchen sink.</p>
 <p>We do <strong><em>a lot less</em></strong> and we think that is a good thing.</p>
 <p>complate provides a lightweight <a href="https://facebook.github.io/jsx/">JSX</a>
 implementation to allow us to write declarative component based templates
-(macros) without making assumptions about the underlying technology.</p>
+(macros).</p>
+<p>Our goal is to provide a templating language that is optimized for
+server-side rendering and still allows us to get the benefits of
+<a href="rationale.html">abstraction and composition</a> that come from using a
+component based approach. complate works across many platforms, allowing
+us to get true reuse out of our components.</p>
+<p>complate differs from
+<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">web components</a>
+in that the macros are designed primarily for use in server-side rendering.
+However, complate and web components actually make a great team, allowing us to
+develop both our server-side code and our client-side code using components.</p>
 <pre><code class="language-jsx">&lt;Card title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
     &lt;Button label=&quot;toggle&quot; /&gt;
@@ -96,13 +106,6 @@ implementation to allow us to write declarative component based templates
     &lt;div&gt;
 &lt;/article&gt;
 </code></pre>
-<p>One of the reasons we developed complate is that we wanted to be able to
-write our frontends using components to get the benefits of
-<a href="rationale.html">abstraction and composition</a>, but we also wanted to make
-it easy to use our complate macros for server-side rendering.
-This is how complate differs from
-<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">web components</a>,
-which create and instantiate components in a client browser.</p>
 <p>The complate approach is similar to server-side rendering in component
 based frameworks like <a href="https://reactjs.org/">React</a> and
 <a href="https://vuejs.org/">Vue</a>, but because their implementations have to deal with

@@ -10,7 +10,19 @@ We do **_a lot less_** and we think that is a good thing.
 
 complate provides a lightweight [JSX](https://facebook.github.io/jsx/)
 implementation to allow us to write declarative component based templates
-(macros) without making assumptions about the underlying technology.
+(macros).
+
+Our goal is to provide a templating language that is optimized for
+server-side rendering and still allows us to get the benefits of
+[abstraction and composition](rationale.html) that come from using a
+component based approach. complate works across many platforms, allowing
+us to get true reuse out of our components.
+
+complate differs from
+[web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+in that the macros are designed primarily for use in server-side rendering.
+However, complate and web components actually make a great team, allowing us to
+develop both our server-side code and our client-side code using components.
 
 ```jsx
 <Card title="Hello World">
@@ -34,14 +46,6 @@ turns into
     <div>
 </article>
 ```
-
-One of the reasons we developed complate is that we wanted to be able to
-write our frontends using components to get the benefits of
-[abstraction and composition](rationale.html), but we also wanted to make
-it easy to use our complate macros for server-side rendering.
-This is how complate differs from
-[web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components),
-which create and instantiate components in a client browser.
 
 The complate approach is similar to server-side rendering in component
 based frameworks like [React](https://reactjs.org/) and
