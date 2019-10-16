@@ -1,7 +1,7 @@
 title: complate: declarative, component-oriented HTML templating
 h1: complate
 subtitle: component-based templating
-description: expressive • declarative • composable • independent of any particular technology choice
+description: expressive • declarative • composable • technology-agnostic
 
 Modern JavaScript frameworks come with batteries included and everything
 but the kitchen sink.
