@@ -1,4 +1,4 @@
-import { createElement } from "complate-stream";
+import { createElement, safe } from "complate-stream";
 
 let CSS = `
 body {
@@ -78,7 +78,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<head>
 			<meta charset="utf-8" />
 			<title>{title}</title>
-			<style>{CSS}</style>
+			<style>{safe(CSS)}</style>
 			<link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css" />
 		</head>
 
