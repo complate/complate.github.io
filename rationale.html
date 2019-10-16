@@ -2,7 +2,8 @@
 <html><head><meta charset="utf-8"><title>Why complate?</title><style>
 body {
 	margin: 0;
-	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
+	font-family: Trebuchet MS, Helvetica, sans-serif;
+	font-size: 1.125rem;
 }
 
 * + h2 {
@@ -10,7 +11,7 @@ body {
 }
 
 h2 {
-	font-size: 1.125rem;
+	font-size: 1.5rem;
 	font-weight: 100;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -116,7 +117,9 @@ influencing the parent component.</p>
 composed together:</p>
 <pre><code class="language-jsx">function NavbarItem ({ href, current }, ...children) {
     const className = current ? &quot;current&quot; : null
-    return &lt;a class={className} href={href}&gt;{children}&lt;/a&gt;
+    return &lt;a class={className} href={href}&gt;
+        {children}
+    &lt;/a&gt;
 }
 
 function Navbar (_params, ...children) {
@@ -127,7 +130,7 @@ function Navbar (_params, ...children) {
 
 &lt;Navbar&gt;
     &lt;a href=&quot;#profile&quot;&gt;
-        &lt;Avatar src=&quot;profile.jpg&quot; alt=&quot;User Profile Picture&quot; /&gt;
+        &lt;Avatar src=&quot;profile.jpg&quot; alt=&quot;User Avatar&quot; /&gt;
     &lt;/a&gt;
     &lt;NavbarItem href=&quot;/&quot;&gt;Home&lt;/NavbarItem&gt;
     &lt;NavbarItem href=&quot;/about&quot; current&gt;About&lt;/NavbarItem&gt;

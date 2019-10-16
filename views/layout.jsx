@@ -3,7 +3,8 @@ import { createElement } from "complate-stream";
 let CSS = `
 body {
 	margin: 0;
-	font-family: Trebuchet MS1, Trebuchet MS, sans-serif;
+	font-family: Trebuchet MS, Helvetica, sans-serif;
+	font-size: 1.125rem;
 }
 
 * + h2 {
@@ -11,7 +12,7 @@ body {
 }
 
 h2 {
-	font-size: 1.125rem;
+	font-size: 1.5rem;
 	font-weight: 100;
 	letter-spacing: 2px;
 	text-transform: uppercase;

@@ -65,7 +65,9 @@ composed together:
 ```jsx
 function NavbarItem ({ href, current }, ...children) {
     const className = current ? "current" : null
-    return <a class={className} href={href}>{children}</a>
+    return <a class={className} href={href}>
+        {children}
+    </a>
 }
 
 function Navbar (_params, ...children) {
@@ -76,7 +78,7 @@ function Navbar (_params, ...children) {
 
 <Navbar>
     <a href="#profile">
-        <Avatar src="profile.jpg" alt="User Profile Picture" />
+        <Avatar src="profile.jpg" alt="User Avatar" />
     </a>
     <NavbarItem href="/">Home</NavbarItem>
     <NavbarItem href="/about" current>About</NavbarItem>
