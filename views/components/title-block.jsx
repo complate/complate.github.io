@@ -4,7 +4,7 @@ import Logo from "./logo";
 
 export default (_params, ...children) => <div class="title-block">
 	<Container>
-		<Logo src="complate_device_static-512.png" />
+		<Logo src="complate.png" />
 		<div class="title-area">
 			{children}
 		</div>
