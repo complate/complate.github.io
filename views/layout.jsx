@@ -53,11 +53,8 @@ h2 {
 .logo {
 	max-width: 200px;
 	max-height: 200px;
-	margin: auto;
-}
-
-.logo img {
 	width: 100%;
+	margin: auto;
 }
 
 p {
