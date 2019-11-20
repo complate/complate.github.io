@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>What is JSX?</title><style>
+body {
+	max-width: 40em;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+p {
+	line-height: 1.4;
+}
+
+blockquote {
+	margin-left: 1em;
+	border-left: 3px solid #AAA;
+	padding-left: 0.5em;
+}
+
+blockquote + p {
+	margin-left: 1em;
+	font-size: 0.9em;
+}
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>What is JSX?</h1>
+<p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
+which allows you to write declarative HTML like code in your JavaScript files.
+It is not a part of the ECMAScript spec and instead requires a
+<a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">transpiler</a> to
+translate JSX definitions into pure JavaScript.</p>
+<p>JSX is an HTML like <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactical sugar</a>
+for the function signature <code>createElement(component, params, ...children)</code>.</p>
+<p>We easily recognize the following as being HTML:</p>
+<pre><code class="language-html">&lt;p class=&quot;sample&quot;&gt;Hello World&lt;/p&gt;
+</code></pre>
+<p>JSX understands this and tranlates it to the following function call:</p>
+<pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
+</code></pre>
+<p>And just as HTML is composable, so also is JSX:</p>
+<pre><code class="language-html">&lt;article class=&quot;blog-post&quot;&gt;
+	&lt;h2&gt;Hello World&lt;/h2&gt;
+	&lt;p&gt;lorem ipsum&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+<p>becomes</p>
+<pre><code class="language-javascript">createElement(&quot;article&quot;, { class: &quot;blog-post&quot; },
+	createElement(&quot;h2&quot;, null, &quot;Hello World&quot;),
+	createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
+</code></pre>
+<p>And now we can leverage the power of JSX to not only create existing HTML
+elements but to write our own element definitions.</p>
+<p>For instance:</p>
+<pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
+	&lt;p&gt;lorem ipsum&lt;/p&gt;
+&lt;/MyComponent&gt;
+</code></pre>
+<p>will be translated to</p>
+<pre><code class="language-javascript">createElement(MyComponent, { title: &quot;Hello World&quot; },
+	createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;))
+</code></pre>
+<script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
