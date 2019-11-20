@@ -21,6 +21,10 @@ blockquote + p {
 	margin-left: 1em;
 	font-size: 0.9em;
 }
+
+img {
+	max-width: 100%;
+}
 `;
 
 export default function DefaultLayout({ title }, ...children) {
