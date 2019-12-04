@@ -156,7 +156,7 @@ provide a `Fragment` component with provides an artificial hierarchy level.
 ### Trying it out
 
 You can try out how JSX translation works in the
-[Babel online compiler](https://babeljs.io/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.7.3&externalPlugins=).
+[Babel online compiler](https://babeljs.io/repl#?presets=react&code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA).
 It translates it using the `createElement` function from the React library,
 but we can also tell Babel to use a different `createElement` function from a
 library like complate.
