@@ -256,4 +256,4 @@ and [Ruby](https://github.com/complate/complate-ruby).
 We also provide the
 [complate-dom](https://github.com/complate/complate-dom) implementation
 whose tiny `createElement` implementation uses the browsers' API in order to create
-DOM Elements which are rendered on the client.
+DOM elements which are rendered on the client.
