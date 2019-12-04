@@ -27,16 +27,16 @@ img {
 </style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>What is JSX?</h1>
 <h2>JSX Fundamentals</h2>
 <p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
-which allows you to embed declarative HTML-like code within JavaScript.
-It requires a
+which allows you to write declarative HTML like code in your JavaScript files.
+It is not a part of the ECMAScript spec and instead requires a
 <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">transpiler</a> to
-turn JSX definitions into executable JavaScript.</p>
-<p>Essentially, JSX is just <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactic sugar</a>
+translate JSX definitions into pure JavaScript.</p>
+<p>JSX is an HTML like <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactical sugar</a>
 for the function signature <code>createElement(component, params, ...children)</code>.</p>
 <p>We easily recognize the following as being HTML:</p>
 <pre><code class="language-html">&lt;p class=&quot;sample&quot;&gt;Hello World&lt;/p&gt;
 </code></pre>
-<p>As JSX, this tranlates to the following expression:</p>
+<p>JSX understands this and tranlates it to the following function call:</p>
 <pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
 </code></pre>
 <p>And just as HTML is composable, so also is JSX:</p>
@@ -123,7 +123,7 @@ provide a <code>Fragment</code> component with provides an artificial hierarchy 
 </code></pre>
 <h3>Trying it out</h3>
 <p>You can try out how JSX translation works in the
-<a href="https://babeljs.io/repl#?babili=false&amp;browsers=&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=es2015%2Creact%2Cstage-2&amp;prettier=false&amp;targets=&amp;version=7.7.3&amp;externalPlugins=">Babel online compiler</a>.
+<a href="https://babeljs.io/repl#?presets=react&amp;code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA">Babel online compiler</a>.
 It translates it using the <code>createElement</code> function from the React library,
 but we can also tell Babel to use a different <code>createElement</code> function from a
 library like complate.</p>
