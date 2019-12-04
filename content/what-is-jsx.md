@@ -31,8 +31,8 @@ And just as HTML is composable, so also is JSX:
 
 ```html
 <article class="blog-post">
-	<h2>Hello World</h2>
-	<p>lorem ipsum</p>
+    <h2>Hello World</h2>
+    <p>lorem ipsum</p>
 </article>
 ```
 
@@ -40,8 +40,8 @@ becomes
 
 ```javascript
 createElement("article", { class: "blog-post" },
-	createElement("h2", null, "Hello World"),
-	createElement("p", null, "lorem ipsum"));
+    createElement("h2", null, "Hello World"),
+    createElement("p", null, "lorem ipsum"));
 ```
 
 And now we can leverage the power of JSX to not only create existing HTML
@@ -51,7 +51,7 @@ For instance:
 
 ```jsx
 <MyComponent title="Hello World">
-	<p>lorem ipsum</p>
+    <p>lorem ipsum</p>
 </MyComponent>
 ```
 
@@ -59,7 +59,7 @@ will be translated to
 
 ```javascript
 createElement(MyComponent, { title: "Hello World" },
-	createElement("p", null, "lorem ipsum"));
+    createElement("p", null, "lorem ipsum"));
 ```
 
 Here JSX recognizes an element which is capitalized as being a user defined
@@ -99,7 +99,7 @@ will become
 
 ```javascript
 createElement(MyComponent, { title: title },
-	createElement("p", null, description));
+    createElement("p", null, description));
 ```
 
 This means that we can use JavaScript expressions to express conditionals
@@ -144,12 +144,12 @@ provide a `Fragment` component with provides an artificial hierarchy level.
 
 ```jsx
 <dl>
-	{items.map(({ term, description }) => (
-		<Fragment>
-			<dt>{term}</dt>
-			<dd>{description}</dd>
-		</Fragment>
-	))}
+    {items.map(({ term, description }) => (
+        <Fragment>
+            <dt>{term}</dt>
+            <dd>{description}</dd>
+        </Fragment>
+    ))}
 </dl>
 ```
 
@@ -171,7 +171,7 @@ We saw before that
 
 ```jsx
 <MyComponent title="Hello World">
-	<p>lorem ipsum</p>
+    <p>lorem ipsum</p>
 <MyComponent>
 ```
 
@@ -179,7 +179,7 @@ becomes
 
 ```javascript
 createElement(MyComponent, { title: title },
-	createElement("p", null, description));
+    createElement("p", null, description));
 ```
 
 In order for this to work, the complate `createElement` function needs
@@ -218,7 +218,7 @@ is truthy.
 
 ```jsx
 <article>
-	{description && <p>{description}</p>}
+    {description && <p>{description}</p>}
 <article>
 ```
 

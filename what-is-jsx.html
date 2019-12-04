@@ -27,39 +27,39 @@ img {
 </style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><h1>What is JSX?</h1>
 <h2>JSX Fundamentals</h2>
 <p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
-which allows you to write declarative HTML like code in your JavaScript files.
-It is not a part of the ECMAScript spec and instead requires a
+which allows you to embed declarative HTML-like code within JavaScript.
+It requires a
 <a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">transpiler</a> to
-translate JSX definitions into pure JavaScript.</p>
-<p>JSX is an HTML like <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactical sugar</a>
+turn JSX definitions into executable JavaScript.</p>
+<p>Essentially, JSX is just <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactic sugar</a>
 for the function signature <code>createElement(component, params, ...children)</code>.</p>
 <p>We easily recognize the following as being HTML:</p>
 <pre><code class="language-html">&lt;p class=&quot;sample&quot;&gt;Hello World&lt;/p&gt;
 </code></pre>
-<p>JSX understands this and tranlates it to the following function call:</p>
+<p>As JSX, this tranlates to the following expression:</p>
 <pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
 </code></pre>
 <p>And just as HTML is composable, so also is JSX:</p>
 <pre><code class="language-html">&lt;article class=&quot;blog-post&quot;&gt;
-	&lt;h2&gt;Hello World&lt;/h2&gt;
-	&lt;p&gt;lorem ipsum&lt;/p&gt;
+    &lt;h2&gt;Hello World&lt;/h2&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
 &lt;/article&gt;
 </code></pre>
 <p>becomes</p>
 <pre><code class="language-javascript">createElement(&quot;article&quot;, { class: &quot;blog-post&quot; },
-	createElement(&quot;h2&quot;, null, &quot;Hello World&quot;),
-	createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
+    createElement(&quot;h2&quot;, null, &quot;Hello World&quot;),
+    createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
 </code></pre>
 <p>And now we can leverage the power of JSX to not only create existing HTML
 elements but to write our own element definitions.</p>
 <p>For instance:</p>
 <pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
-	&lt;p&gt;lorem ipsum&lt;/p&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
 &lt;/MyComponent&gt;
 </code></pre>
 <p>will be translated to</p>
 <pre><code class="language-javascript">createElement(MyComponent, { title: &quot;Hello World&quot; },
-	createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
+    createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
 </code></pre>
 <p>Here JSX recognizes an element which is capitalized as being a user defined
 component and will pass <code>MyComponent</code> as a variable reference into the
@@ -84,7 +84,7 @@ expression.</p>
 </code></pre>
 <p>will become</p>
 <pre><code class="language-javascript">createElement(MyComponent, { title: title },
-	createElement(&quot;p&quot;, null, description));
+    createElement(&quot;p&quot;, null, description));
 </code></pre>
 <p>This means that we can use JavaScript expressions to express conditionals</p>
 <pre><code class="language-jsx">&lt;MyComponent title={title || &quot;unknown&quot;}&gt;
@@ -113,12 +113,12 @@ are identical:</p>
 we want to return several at once. To do this, a JSX implementation will
 provide a <code>Fragment</code> component with provides an artificial hierarchy level.</p>
 <pre><code class="language-jsx">&lt;dl&gt;
-	{items.map(({ term, description }) =&gt; (
-		&lt;Fragment&gt;
-			&lt;dt&gt;{term}&lt;/dt&gt;
-			&lt;dd&gt;{description}&lt;/dd&gt;
-		&lt;/Fragment&gt;
-	))}
+    {items.map(({ term, description }) =&gt; (
+        &lt;Fragment&gt;
+            &lt;dt&gt;{term}&lt;/dt&gt;
+            &lt;dd&gt;{description}&lt;/dd&gt;
+        &lt;/Fragment&gt;
+    ))}
 &lt;/dl&gt;
 </code></pre>
 <h3>Trying it out</h3>
@@ -131,12 +131,12 @@ library like complate.</p>
 <p>Now we want to look at the specifics of the complate JSX implementation.</p>
 <p>We saw before that</p>
 <pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
-	&lt;p&gt;lorem ipsum&lt;/p&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
 &lt;MyComponent&gt;
 </code></pre>
 <p>becomes</p>
 <pre><code class="language-javascript">createElement(MyComponent, { title: title },
-	createElement(&quot;p&quot;, null, description));
+    createElement(&quot;p&quot;, null, description));
 </code></pre>
 <p>In order for this to work, the complate <code>createElement</code> function needs
 to be available in the JavaScript scope.</p>
@@ -164,7 +164,7 @@ JavaScript expressions for conditionals.</p>
 <p>Here a <code>&lt;p&gt;</code> tag will only be generated when the description value
 is truthy.</p>
 <pre><code class="language-jsx">&lt;article&gt;
-	{description &amp;&amp; &lt;p&gt;{description}&lt;/p&gt;}
+    {description &amp;&amp; &lt;p&gt;{description}&lt;/p&gt;}
 &lt;article&gt;
 </code></pre>
 <h3>Multiple JSX Implementations</h3>
