@@ -112,19 +112,6 @@ statements are identical:</p>
 </code></pre>
 <pre><code class="language-jsx">&lt;button disabled={true}&gt;
 </code></pre>
-<h3>Fragment Provided by JSX Implementation</h3>
-<p>JSX always expects exactly one root element in an expression, but in some cases
-we want to return several at once. To do this, a JSX implementation will
-provide a <code>Fragment</code> component with provides an artificial hierarchy level.</p>
-<pre><code class="language-jsx">&lt;dl&gt;
-    {items.map(({ term, description }) =&gt; (
-        &lt;Fragment&gt;
-            &lt;dt&gt;{term}&lt;/dt&gt;
-            &lt;dd&gt;{description}&lt;/dd&gt;
-        &lt;/Fragment&gt;
-    ))}
-&lt;/dl&gt;
-</code></pre>
 <h3>Trying It Out</h3>
 <p>You can try out how JSX translation works in the
 <a href="https://babeljs.io/repl#?babili=false&amp;browsers=&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=es2015%2Creact%2Cstage-2&amp;prettier=false&amp;targets=&amp;version=7.7.3&amp;externalPlugins=">Babel online compiler</a>.

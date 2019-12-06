@@ -140,23 +140,6 @@ statements are identical:
 <button disabled={true}>
 ```
 
-### Fragment Provided by JSX Implementation
-
-JSX always expects exactly one root element in an expression, but in some cases
-we want to return several at once. To do this, a JSX implementation will
-provide a `Fragment` component with provides an artificial hierarchy level.
-
-```jsx
-<dl>
-    {items.map(({ term, description }) => (
-        <Fragment>
-            <dt>{term}</dt>
-            <dd>{description}</dd>
-        </Fragment>
-    ))}
-</dl>
-```
-
 ### Trying It Out
 
 You can try out how JSX translation works in the
