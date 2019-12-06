@@ -250,9 +250,12 @@ implementation is minimal, we can evaluate it in the JavaScript runtime of
 a back-end language and provide a stream which makes sense for the
 runtime environment, e.g. hooking into the HTTP request implementation of a
 framework in order to write the HTML directly into the response body.
-This is exactly what we have done for
-[Java](https://github.com/complate/complate-java)
-and [Ruby](https://github.com/complate/complate-ruby).
+
+This is exactly what we have done for the following languages:
+
+* [Java](https://github.com/complate/complate-java)
+* [Ruby](https://github.com/complate/complate-ruby)
+* [JavaScript](https://github.com/complate/complate-express)
 
 #### complate-dom
 
