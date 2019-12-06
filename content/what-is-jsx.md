@@ -46,6 +46,9 @@ createElement("article", { class: "blog-post" },
 
 And now we can leverage the power of JSX to not only generate standardized HTML
 elements but to write our own element definitions.
+The goal is to write a declarative component in an HTML like syntax to get all of
+the [benefits of components](rationale.html) and then translate it to an imperative
+syntax which JavaScript understands.
 
 For instance:
 

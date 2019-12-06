@@ -51,7 +51,10 @@ for the function signature <code>createElement(tag, params, ...children)</code>.
     createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
 </code></pre>
 <p>And now we can leverage the power of JSX to not only generate standardized HTML
-elements but to write our own element definitions.</p>
+elements but to write our own element definitions.
+The goal is to write a declarative component in an HTML like syntax to get all of
+the <a href="rationale.html">benefits of components</a> and then translate it to an imperative
+syntax which JavaScript understands.</p>
 <p>For instance:</p>
 <pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
