@@ -129,9 +129,8 @@ Similarly, loops are expressions as well:
 
 ### Special Cases for Boolean Attributes
 
-Attributes without an explicit value in a JSX expression are interpreted as
-having the boolean value `true`. This means that the following two JSX blocks
-are identical:
+JSX supports a shorthand for boolean parameters, thus the following two
+statements are identical:
 
 ```jsx
 <button disabled>
