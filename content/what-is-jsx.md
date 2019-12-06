@@ -75,7 +75,7 @@ The following image illustrates the relationship between the generic JSX
 specification and the corresponding `createElement` implementations (of which
 there are more than one).
 
-![A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement calls are then interpreted by the JSX implementation](jsx-transpilation-and-interpretation.svg)
+![A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX Implementation are then evaluated](jsx-transpilation-and-execution.svg)
 
 The JSX specification defines how a JavaScript transpiler should translate JSX blocks
 into a series of `createElement` calls. But the `createElement` function
