@@ -185,6 +185,11 @@ function MyComponent({ title }, ...children) {
 }
 ```
 
+This is a complate specific implementation detail: in other JSX implementations
+a user defined component could be a class, but the JSX spec itself does not make
+any statement about what a user defined component is, other than that it should
+be in the scope of the application.
+
 ### Dealing with Boolean Attributes
 
 We saw above that JSX interprets an attribute without a value as being
