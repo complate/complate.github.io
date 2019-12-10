@@ -190,17 +190,15 @@ a user defined component could be a class, but the JSX spec itself does not make
 any statement about what a user defined component is, other than that it should
 be in the scope of the application.
 
-### Dealing with Boolean Attributes
+### Dealing with Boolean Parameters
 
-We saw above that JSX interprets an attribute without a value as being
-the same as the boolean value `true`. complate also ignores the "blank"
-values (`false`, `undefined`, `null`) so `<button disabled={undefined}>`
-and `<button disabled={null}>` both result in the `disabled` attribute
-being discarded in the HTML output.
+complate ensures that boolean parameters in macros are correctly translated to
+HTML boolean attributes. This means that the JSX `<div hidden={expression}>`
+will be correctly translated to `<div hidden>` or `<div>` based on the
+result of the JavaScript `expression` that we evaluate. complate considers
+"blank" values (`false`, `undefined`, `null`) to be falsey.
 
-complate will also ensure that boolean properties are correctly set on
-HTML elements. This means that `<button disabled={true}>` will be
-correctly translated to the HTML Tag `<button disabled>`.
+### Dealing with Blank Children
 
 complate also ignores blank children so that we can more easily use
 JavaScript expressions for conditionals.
