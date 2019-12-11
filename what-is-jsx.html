@@ -52,7 +52,7 @@ for the function signature <code>createElement(tag, params, ...children)</code>.
 </code></pre>
 <p>And now we can leverage the power of JSX to not only generate standardized HTML
 elements but to write our own element definitions.
-The goal is to write a declarative component in an HTML like syntax to get all of
+The goal is to write a declarative component in an HTML-like syntax to get all of
 the <a href="rationale.html">benefits of components</a> and then translate it to an imperative
 syntax which JavaScript understands.</p>
 <p>For instance:</p>
@@ -72,7 +72,7 @@ JSX implementation usually become hopelessly intertwined.
 The following image illustrates the relationship between the generic JSX
 specification and the corresponding <code>createElement</code> implementations (of which
 there are more than one).</p>
-<p><img src="jsx-transpilation-and-execution.svg" alt="A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX Implementation are then evaluated" /></p>
+<p><img src="jsx-transpilation-and-execution.svg" alt="A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX implementation are then evaluated" /></p>
 <p>The JSX specification defines how a JavaScript transpiler should translate JSX blocks
 into a series of <code>createElement</code> calls. But the <code>createElement</code> function
 itself is provided by a JSX <em>implementation</em>. This determines how the actual components
@@ -131,7 +131,7 @@ library like complate.</p>
 </code></pre>
 <p>In order for this to work, the complate <code>createElement</code> function needs
 to be available in the JavaScript scope.</p>
-<p><code>createElement</code> in complate expects a user defined component (called a macro)
+<p><code>createElement</code> in complate expects a user-defined component (called a macro)
 to be a function with the signature <code>(params, ...children)</code> and to return a JSX
 expression. An example definition for <code>MyComponent</code> could be:</p>
 <pre><code class="language-jsx">function MyComponent({ title }, ...children) {
@@ -141,9 +141,9 @@ expression. An example definition for <code>MyComponent</code> could be:</p>
     &lt;/article&gt;;
 }
 </code></pre>
-<p>This is a complate specific implementation detail: in other JSX implementations
-a user defined component could be a class, but the JSX spec itself does not make
-any statement about what a user defined component is, other than that it should
+<p>This is a complate-specific implementation detail: In other JSX implementations
+a user-defined component could be a class, but the JSX spec itself does not make
+any statement about what a user-defined component is, other than that it should
 be in the scope of the application.</p>
 <h3>Dealing with Boolean Attributes</h3>
 <p>We saw above that JSX interprets an attribute without a value as being

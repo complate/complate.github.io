@@ -46,7 +46,7 @@ createElement("article", { class: "blog-post" },
 
 And now we can leverage the power of JSX to not only generate standardized HTML
 elements but to write our own element definitions.
-The goal is to write a declarative component in an HTML like syntax to get all of
+The goal is to write a declarative component in an HTML-like syntax to get all of
 the [benefits of components](rationale.html) and then translate it to an imperative
 syntax which JavaScript understands.
 
@@ -75,7 +75,7 @@ The following image illustrates the relationship between the generic JSX
 specification and the corresponding `createElement` implementations (of which
 there are more than one).
 
-![A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX Implementation are then evaluated](jsx-transpilation-and-execution.svg)
+![A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX implementation are then evaluated](jsx-transpilation-and-execution.svg)
 
 The JSX specification defines how a JavaScript transpiler should translate JSX blocks
 into a series of `createElement` calls. But the `createElement` function
@@ -172,7 +172,7 @@ createElement(MyComponent, { title: title },
 In order for this to work, the complate `createElement` function needs
 to be available in the JavaScript scope.
 
-`createElement` in complate expects a user defined component (called a macro)
+`createElement` in complate expects a user-defined component (called a macro)
 to be a function with the signature `(params, ...children)` and to return a JSX
 expression. An example definition for `MyComponent` could be:
 
@@ -185,9 +185,9 @@ function MyComponent({ title }, ...children) {
 }
 ```
 
-This is a complate specific implementation detail: in other JSX implementations
-a user defined component could be a class, but the JSX spec itself does not make
-any statement about what a user defined component is, other than that it should
+This is a complate-specific implementation detail: In other JSX implementations
+a user-defined component could be a class, but the JSX spec itself does not make
+any statement about what a user-defined component is, other than that it should
 be in the scope of the application.
 
 ### Dealing with Boolean Parameters
