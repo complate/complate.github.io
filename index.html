@@ -74,12 +74,12 @@ blockquote + p {
 but the kitchen sink.</p>
 <p>We do <strong><em>a lot less</em></strong> and we think that is a good thing.</p>
 <p>complate provides a lightweight <a href="https://facebook.github.io/jsx/">JSX</a>
-implementation to allow us to write declarative component based templates
+implementation to allow us to write declarative component-based templates
 (macros).</p>
 <p>Our goal is to provide a templating language that is optimized for
 server-side rendering and still allows us to get the benefits of
 <a href="rationale.html">abstraction and composition</a> that come from using a
-component based approach. complate works across many platforms, allowing
+component-based approach. complate works across many platforms, allowing
 us to get true reuse out of our components.</p>
 <p>complate differs from
 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">web components</a>
@@ -104,12 +104,12 @@ develop both our server-side code and our client-side code using components.</p>
     &lt;div&gt;
 &lt;/article&gt;
 </code></pre>
-<p>The complate approach is similar to server-side rendering in component
-based frameworks like <a href="https://reactjs.org/">React</a> and
+<p>The complate approach is similar to server-side rendering in component-based
+frameworks like <a href="https://reactjs.org/">React</a> and
 <a href="https://vuejs.org/">Vue</a>, but because their implementations have to deal with
 client-side rendering as well, they are larger and more difficult to port to
 other platforms outside of the JavaScript ecosystem.</p>
-<p>This is where complate shines: because of the
+<p>This is where complate shines: Because of the
 <a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">lean underlying implementation</a>, it is possible to write a component
 which can easily be reused across multiple projects on different platforms.</p>
 <h2>Cross-Platform Support</h2>
@@ -121,7 +121,7 @@ complate macros in different tech stacks like:</p>
 <li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
 <li><a href="https://github.com/complate/complate-spring-mvc">Spring MVC</a> (Java)</li>
 </ul>
-<p>This is particularly useful in heterogenous software systems, where we may be
+<p>This is particularly useful in heterogeneous software systems, where we may be
 running multiple services using different back-end technologies, but we want to
 reuse front-end components between services. If this is the case, we can
 develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using

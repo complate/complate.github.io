@@ -1,9 +1,9 @@
 title: Why complate?
 h1: Why complate?
-subtitle: Benefits of designing frontend code using a component abstraction
+subtitle: Benefits of designing front-end code using a component abstraction
 
 One of the main goals for complate is to create a templating engine which
-allows us to write our frontend using components. Why would we want to do
+allows us to write our front end using components. Why would we want to do
 that? Let's look at some of the major benefits of a component based templating
 engine.
 
