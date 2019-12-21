@@ -1,10 +1,60 @@
-import { createElement } from "complate-stream";
+import { createElement, safe } from "complate-stream";
 
 let CSS = `
 body {
-	max-width: 40em;
+	margin: 0;
+	font-family: Trebuchet MS, Helvetica, sans-serif;
+	font-size: 1.125rem;
+}
+
+* + h2 {
+	margin-top: 5rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: hsl(205.7, 6.3%, 56.1%);
+}
+
+.container {
+	max-width: 40rem;
 	margin: 0 auto;
-	font-family: sans-serif;
+	padding: 3rem 1rem;
+}
+
+.title-block {
+	background-color: #36454F;
+	color: #fff;
+}
+
+.title-block .container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.title-block .title-area {
+	flex-basis: 5rem;
+	flex-grow: 1;
+}
+
+.title-block h1 {
+	font-size: 3rem;
+	font-family: monospace;
+}
+
+.title-block p {
+	font-size: 1.25rem;
+	color: #00f1ea;
+}
+
+.logo {
+	max-width: 200px;
+	max-height: 200px;
+	width: 100%;
+	margin: auto;
 }
 
 p {
@@ -12,14 +62,14 @@ p {
 }
 
 blockquote {
-	margin-left: 1em;
+	margin-left: 1rem;
 	border-left: 3px solid #AAA;
-	padding-left: 0.5em;
+	padding-left: 0.5rem;
 }
 
 blockquote + p {
-	margin-left: 1em;
-	font-size: 0.9em;
+	margin-left: 1rem;
+	font-size: 0.9rem;
 }
 `;
 
@@ -28,7 +78,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<head>
 			<meta charset="utf-8" />
 			<title>{title}</title>
-			<style>{CSS}</style>
+			<style>{safe(CSS)}</style>
 			<link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css" />
 		</head>
 
