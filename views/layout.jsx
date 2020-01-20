@@ -71,6 +71,10 @@ blockquote + p {
 	margin-left: 1rem;
 	font-size: 0.9rem;
 }
+
+img {
+	max-width: 100%;
+}
 `;
 
 export default function DefaultLayout({ title }, ...children) {

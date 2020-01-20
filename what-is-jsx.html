@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>What is JSX?</title><style>
+body {
+	margin: 0;
+	font-family: Trebuchet MS, Helvetica, sans-serif;
+	font-size: 1.125rem;
+}
+
+* + h2 {
+	margin-top: 5rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	font-weight: 100;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: hsl(205.7, 6.3%, 56.1%);
+}
+
+.container {
+	max-width: 40rem;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.title-block {
+	background-color: #36454F;
+	color: #fff;
+}
+
+.title-block .container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.title-block .title-area {
+	flex-basis: 5rem;
+	flex-grow: 1;
+}
+
+.title-block h1 {
+	font-size: 3rem;
+	font-family: monospace;
+}
+
+.title-block p {
+	font-size: 1.25rem;
+	color: #00f1ea;
+}
+
+.logo {
+	max-width: 200px;
+	max-height: 200px;
+	width: 100%;
+	margin: auto;
+}
+
+p {
+	line-height: 1.4;
+}
+
+blockquote {
+	margin-left: 1rem;
+	border-left: 3px solid #AAA;
+	padding-left: 0.5rem;
+}
+
+blockquote + p {
+	margin-left: 1rem;
+	font-size: 0.9rem;
+}
+
+img {
+	max-width: 100%;
+}
+</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>What is JSX?</h1><p>A versatile templating language</p><p></p></div></div></div><div class="container"><h2>JSX Fundamentals</h2>
+<p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
+which allows you to embed declarative HTML-like code within JavaScript.
+It requires a
+<a href="https://en.wikipedia.org/wiki/Source-to-source_compiler">transpiler</a> to
+turn JSX definitions into executable JavaScript.</p>
+<p>Essentially, JSX is just <a href="https://reactjs.org/docs/jsx-in-depth.html">syntactic sugar</a>
+for the function signature <code>createElement(tag, params, ...children)</code>.</p>
+<p>We easily recognize the following as being HTML:</p>
+<pre><code class="language-html">&lt;p class=&quot;sample&quot;&gt;Hello World&lt;/p&gt;
+</code></pre>
+<p>As JSX, this tranlates to the following expression:</p>
+<pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
+</code></pre>
+<p>And just as HTML is composable, so also is JSX:</p>
+<pre><code class="language-html">&lt;article class=&quot;blog-post&quot;&gt;
+    &lt;h2&gt;Hello World&lt;/h2&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+<p>becomes</p>
+<pre><code class="language-javascript">createElement(&quot;article&quot;, { class: &quot;blog-post&quot; },
+    createElement(&quot;h2&quot;, null, &quot;Hello World&quot;),
+    createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
+</code></pre>
+<p>And now we can leverage the power of JSX to not only generate standardized HTML
+elements but to write our own element definitions.
+The goal is to write a declarative component in an HTML-like syntax to get all of
+the <a href="rationale.html">benefits of components</a> and then translate it to an imperative
+syntax which JavaScript understands.</p>
+<p>For instance:</p>
+<pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
+&lt;/MyComponent&gt;
+</code></pre>
+<p>will be translated to</p>
+<pre><code class="language-javascript">createElement(MyComponent, { title: &quot;Hello World&quot; },
+    createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
+</code></pre>
+<p>Capitalized tags signify user-defined components. Here JSX will pass
+<code>MyComponent</code> as a variable reference into the <code>createElement</code> function instead
+of a string.</p>
+<p>This is the point in the documentation where the JSX specification and the
+JSX implementation usually become hopelessly intertwined.
+The following image illustrates the relationship between the generic JSX
+specification and the corresponding <code>createElement</code> implementations (of which
+there are more than one).</p>
+<p><img src="jsx-transpilation-and-execution.svg" alt="A file with JSX blocks is transpiled into JavaScript with createElement calls. These createElement provided by the JSX implementation are then evaluated" /></p>
+<p>The JSX specification defines how a JavaScript transpiler should translate JSX blocks
+into a series of <code>createElement</code> calls. But the <code>createElement</code> function
+itself is provided by a JSX <em>implementation</em>. This determines how the actual components
+need to be defined. We will go into the specific details about the complate
+implementation below, but first we want to look at a few more details about the
+JSX implementation.</p>
+<!-- raw HTML omitted -->
+<h3>Interpolation with JavaScript Expressions</h3>
+<p>Everything which appears in a <code>{…}</code> block will be interpreted as a JavaScript
+expression.</p>
+<pre><code class="language-jsx">&lt;MyComponent title={title}&gt;
+    &lt;p&gt;{description}&lt;/p&gt;
+&lt;/MyComponent&gt;
+</code></pre>
+<p>will become</p>
+<pre><code class="language-javascript">createElement(MyComponent, { title: title },
+    createElement(&quot;p&quot;, null, description));
+</code></pre>
+<p>Thus we use JavaScript expressions for conditionals:</p>
+<pre><code class="language-jsx">&lt;MyComponent title={title || &quot;unknown&quot;}&gt;
+    {description &amp;&amp; (
+        &lt;p&gt;{description}&lt;/p&gt;
+    )}
+&lt;/MyComponent&gt;
+</code></pre>
+<p>Similarly, loops are expressions as well:</p>
+<pre><code class="language-jsx">&lt;ul&gt;
+    {items.map(item =&gt; (
+        &lt;li&gt;{item}&lt;/li&gt;
+    ))}
+&lt;/ul&gt;
+</code></pre>
+<h3>Special Cases for Boolean Attributes</h3>
+<p>JSX supports a shorthand for boolean parameters, thus the following two
+statements are identical:</p>
+<pre><code class="language-jsx">&lt;button disabled&gt;
+</code></pre>
+<pre><code class="language-jsx">&lt;button disabled={true}&gt;
+</code></pre>
+<h3>Trying It Out</h3>
+<p>You can try out how JSX translation works in the
+<a href="https://babeljs.io/repl#?babili=false&amp;browsers=&amp;build=&amp;builtIns=false&amp;spec=false&amp;loose=false&amp;code_lz=DwWQngwg9gtgDlAdgU0QFwARoJZoDbIC8ARABLJ55QYDqUATngCbEB8AUAJDBytX3IYGbHADOAVxjAA9L3Yzw0eElRpWQA&amp;debug=false&amp;forceAllTransforms=false&amp;shippedProposals=false&amp;circleciRepo=&amp;evaluate=false&amp;fileSize=false&amp;timeTravel=false&amp;sourceType=module&amp;lineWrap=true&amp;presets=es2015%2Creact%2Cstage-2&amp;prettier=false&amp;targets=&amp;version=7.7.3&amp;externalPlugins=">Babel online compiler</a>.
+It translates it using the <code>createElement</code> function from the React library,
+but we can also tell Babel to use a different <code>createElement</code> function from a
+library like complate.</p>
+<h2>complate’s <code>createElement</code> implementation</h2>
+<p>Now we want to look at the specifics of complate’s own JSX implementation.</p>
+<p>We saw before that</p>
+<pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
+    &lt;p&gt;lorem ipsum&lt;/p&gt;
+&lt;MyComponent&gt;
+</code></pre>
+<p>becomes</p>
+<pre><code class="language-javascript">createElement(MyComponent, { title: title },
+    createElement(&quot;p&quot;, null, description));
+</code></pre>
+<p>In order for this to work, the complate <code>createElement</code> function needs
+to be available in the JavaScript scope.</p>
+<p><code>createElement</code> in complate expects a user-defined component (called a macro)
+to be a function with the signature <code>(params, ...children)</code> and to return a JSX
+expression. An example definition for <code>MyComponent</code> could be:</p>
+<pre><code class="language-jsx">function MyComponent({ title }, ...children) {
+    return &lt;article&gt;
+        &lt;h2&gt;{title}&lt;/h2&gt;
+        {children}
+    &lt;/article&gt;;
+}
+</code></pre>
+<p>This is a complate-specific implementation detail: In other JSX implementations
+a user-defined component could be a class, but the JSX spec itself does not make
+any statement about what a user-defined component is, other than that it should
+be in the scope of the application.</p>
+<h3>Dealing with Boolean Parameters</h3>
+<p>complate ensures that boolean parameters in macros are correctly translated to
+HTML boolean attributes. This means that the JSX <code>&lt;div hidden={expression}&gt;</code>
+will be correctly translated to <code>&lt;div hidden&gt;</code> or <code>&lt;div&gt;</code> based on the
+result of the JavaScript <code>expression</code> that we evaluate. complate considers
+“blank” values (<code>false</code>, <code>undefined</code>, <code>null</code>) to be falsey.</p>
+<h3>Dealing with Blank Children</h3>
+<p>complate also ignores blank children so that we can more easily use
+JavaScript expressions for conditionals.</p>
+<p>Here a <code>&lt;p&gt;</code> tag will only be generated when the description value
+is truthy:</p>
+<pre><code class="language-jsx">&lt;article&gt;
+    {description &amp;&amp; (
+		    &lt;p&gt;{description}&lt;/p&gt;
+		)}
+&lt;article&gt;
+</code></pre>
+<h3>Multiple JSX Implementations</h3>
+<p>Up until now we have skirted around the question of what the <code>createElement</code>
+function in complate actually does. This is because we decided to define the
+contract for component definitions separately from the actual implementation
+of the <code>createElement</code> functionality. Because we have optimized for simplicity
+and portability, this has allowed us to create multiple <code>createElement</code>
+implemenations which we can choose based on our use case.</p>
+<h4>complate-stream</h4>
+<p>One complate implementation is
+<a href="https://github.com/complate/complate-stream">complate-stream</a> which is
+optimized for server-side rendering. complate-stream translates the
+component macros to HTML and writes the resulting HTML to a stream.</p>
+<p>The stream here is also an abstraction: Because the <code>complate-stream</code>
+implementation is minimal, we can evaluate it in the JavaScript runtime of
+a back-end language and provide a stream which makes sense for the
+runtime environment, e.g. hooking into the HTTP request implementation of a
+framework in order to write the HTML directly into the response body.</p>
+<p>This is exactly what we have done for the following languages:</p>
+<ul>
+<li><a href="https://github.com/complate/complate-java">Java</a></li>
+<li><a href="https://github.com/complate/complate-ruby">Ruby</a></li>
+<li><a href="https://github.com/complate/complate-express">JavaScript</a></li>
+</ul>
+<h4>complate-dom</h4>
+<p>We also provide the
+<a href="https://github.com/complate/complate-dom">complate-dom</a> implementation
+whose tiny <code>createElement</code> implementation uses the browsers’ API in order to create
+DOM elements which are rendered on the client.</p>
+</div><script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
