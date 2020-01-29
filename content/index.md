@@ -8,7 +8,7 @@ but the kitchen sink.
 
 We do **_a lot less_** and we think that is a good thing.
 
-complate provides a lightweight [JSX](https://facebook.github.io/jsx/)
+complate provides a lightweight [JSX](what-is-jsx.html)
 implementation to allow us to write declarative component-based templates
 (macros).
 
@@ -66,7 +66,8 @@ complate macros in different tech stacks like:
 
 * [Express](https://github.com/complate/complate-express) (Node.js)
 * [Ruby on Rails](https://github.com/complate/complate-ruby) (Ruby)
-* [Spring MVC](https://github.com/complate/complate-spring-mvc) (Java)
+* [Spring](https://github.com/complate/complate-spring) (Java)
+* etc.
 
 This is particularly useful in heterogeneous software systems, where we may be
 running multiple services using different back-end technologies, but we want to
