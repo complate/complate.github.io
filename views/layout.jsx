@@ -13,7 +13,7 @@ body {
 
 h2 {
 	font-size: 1.5rem;
-	font-weight: 100;
+	font-weight: 300;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	color: hsl(205.7, 6.3%, 56.1%);
@@ -82,7 +82,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<head>
 			<meta charset="utf-8" />
 			<title>{title}</title>
-			<link href="https://fonts.googleapis.com/css?family=Fira+Code|Sarabun&display=swap" rel="stylesheet" />
+			<link href="/assets/fonts.css" rel="stylesheet" />
 			<style>{safe(CSS)}</style>
 			<link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css" />
 		</head>
