@@ -3,7 +3,7 @@ import { createElement, safe } from "complate-stream";
 let CSS = `
 body {
 	margin: 0;
-	font-family: Trebuchet MS, Helvetica, sans-serif;
+	font-family: 'Sarabun', Trebuchet MS, Helvetica, sans-serif;
 	font-size: 1.125rem;
 }
 
@@ -42,7 +42,7 @@ h2 {
 
 .title-block h1 {
 	font-size: 3rem;
-	font-family: monospace;
+	font-family: 'Fira Code', monospace;
 }
 
 .title-block p {
@@ -82,6 +82,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<head>
 			<meta charset="utf-8" />
 			<title>{title}</title>
+			<link href="https://fonts.googleapis.com/css?family=Fira+Code|Sarabun&display=swap" rel="stylesheet" />
 			<style>{safe(CSS)}</style>
 			<link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css" />
 		</head>
