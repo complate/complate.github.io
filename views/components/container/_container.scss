@@ -1,0 +1,13 @@
+.container {
+	padding: 3rem 1rem;
+}
+/*
+Put the width limitation and expanding margins on the children
+because some children (e.g. code examples) should have a wider
+max-width than others, so we need to be able to override it.
+*/
+.container > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 40rem;
+}

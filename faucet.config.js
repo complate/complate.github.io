@@ -12,8 +12,8 @@ module.exports = {
 		source: "./lib/styles/_fonts.scss",
 		target: "./assets/fonts.css"
 	}, {
-		source: "./lib/styles/code.scss",
-		target: "./assets/code.css"
+		source: "./lib/styles/index.scss",
+		target: "./assets/index.css"
 	}],
 	static: [{
 		source: "./node_modules/@openfonts/fira-code_all/files/fira-code-all-400.woff2",

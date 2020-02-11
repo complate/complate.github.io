@@ -1,5 +1,5 @@
-import Container from "./container";
-import Logo from "./logo";
+import Container from "../container";
+import Logo from "../logo";
 import { createElement } from "complate-stream";
 
 export default (_params, ...children) => <div class="title-block">

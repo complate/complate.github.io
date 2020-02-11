@@ -25,7 +25,7 @@ in that the macros are designed primarily for use in server-side rendering.
 However, complate and web components actually make a great team, allowing us to
 develop both our server-side code and our client-side code using components.
 
-<div class="editor">
+<div class="code-example">
 <div class="input" aria-label="Input">
 
 ```jsx

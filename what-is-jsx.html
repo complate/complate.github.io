@@ -1,88 +1,5 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>What is JSX?</title><link href="/assets/fonts.css" rel="stylesheet"><style>
-body {
-	margin: 0;
-	font-family: 'Sarabun', Trebuchet MS, Helvetica, sans-serif;
-	font-size: 1.125rem;
-}
-*, *::before, *::after {
-	box-sizing: border-box;
-}
-
-* + h2 {
-	margin-top: 5rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	font-weight: 300;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	color: hsl(205.7, 6.3%, 56.1%);
-}
-
-.container {
-	padding: 3rem 1rem;
-}
-.container > * {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 40rem;
-}
-
-.title-block {
-	background-color: #36454F;
-	color: #fff;
-}
-
-.title-block .container {
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto;
-	max-width: 40rem;
-}
-
-.title-block .title-area {
-	flex-basis: 5rem;
-	flex-grow: 1;
-}
-
-.title-block h1 {
-	font-size: 3rem;
-	font-family: 'Fira Code', monospace;
-}
-
-.title-block p {
-	font-size: 1.25rem;
-	color: #00f1ea;
-}
-
-.logo {
-	max-width: 200px;
-	max-height: 200px;
-	width: 100%;
-	margin: auto;
-}
-
-p {
-	line-height: 1.4;
-}
-
-blockquote {
-	margin-left: 1rem;
-	border-left: 3px solid #AAA;
-	padding-left: 0.5rem;
-}
-
-blockquote + p {
-	margin-left: 1rem;
-	font-size: 0.9rem;
-}
-
-img {
-	max-width: 100%;
-}
-</style><link href="/assets/code.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>What is JSX?</h1><p>A versatile templating language</p><p></p></div></div></div><div class="container"><h2>JSX Fundamentals</h2>
+<html><head><meta charset="utf-8"><title>What is JSX?</title><link href="/assets/fonts.css" rel="stylesheet"><link href="/assets/index.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>What is JSX?</h1><p>A versatile templating language</p><p></p></div></div></div><div class="container"><h2>JSX Fundamentals</h2>
 <p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
 which allows you to embed declarative HTML-like code within JavaScript.
 It requires a
@@ -97,7 +14,7 @@ for the function signature <code>createElement(tag, params, ...children)</code>.
 <pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
 </code></pre>
 <p>And just as HTML is composable, so also is JSX:</p>
-<div class="editor">
+<div class="code-example">
 <div class="input" aria-label="JSX Definition">
 <pre><code class="language-html">&lt;article class=&quot;blog-post&quot;&gt;
     &lt;h2&gt;Hello World&lt;/h2&gt;
@@ -118,7 +35,7 @@ The goal is to write a declarative component in an HTML-like syntax to get all o
 the <a href="rationale.html">benefits of components</a> and then translate it to an imperative
 syntax which JavaScript understands.</p>
 <p>Here is an example:</p>
-<div class="editor">
+<div class="code-example">
 <div class="input" aria-label="JSX Definition">
 <pre><code class="language-jsx">&lt;Component title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
@@ -153,7 +70,7 @@ JSX implementation.</p>
 <h3>Interpolation with JavaScript Expressions</h3>
 <p>Everything which appears in a <code>{…}</code> block will be interpreted as a JavaScript
 expression.</p>
-<div class="editor">
+<div class="code-example">
 <div class="input" aria-label="JSX definition">
 <pre><code class="language-jsx">&lt;Component title={title}&gt;
     &lt;p&gt;{description}&lt;/p&gt;
@@ -196,7 +113,7 @@ library like complate.</p>
 <h2>complate’s <code>createElement</code> implementation</h2>
 <p>Now we want to look at the specifics of complate’s own JSX implementation.</p>
 <p>This is our example from before:</p>
-<div class="editor">
+<div class="code-example">
 <div class="input" aria-label="JSX Definition">
 <pre><code class="language-jsx">&lt;Component title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
