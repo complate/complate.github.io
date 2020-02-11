@@ -1,0 +1,86 @@
+%custom-prism-dark-mode {
+	background-color: #333;
+	color: #E5E5E5;
+
+	.token.punctuation,
+	.token.operator {
+		color: #E5E5E5;
+	}
+	.token.tag, .token.function {
+		color: #FB52B0;
+	}
+	.token.attr-name, .token.keyword {
+		color: #CBFD66;
+	}
+	.token.attr-value, .token.string {
+		color: #6FCFF8;
+	}	
+}
+
+%custom-prism-light-mode {
+	background-color: white;
+	color: #555;
+
+	.token.punctuation,
+	.token.operator {
+		color: #555;
+	}
+	.token.tag, .token.function {
+		color: #AC0060;
+	}
+	.token.attr-name, .token.keyword {
+		color: #71A013;
+	}
+	.token.attr-value, .token.string {
+		color: #087EB0;
+	}
+}
+
+pre {
+	display: block;
+	padding: 1rem;
+}
+pre {
+	@extend %custom-prism-dark-mode;
+	font-family: 'Fira Code', monospace;
+	overflow-x: auto;
+}
+
+.editor {
+	max-width: 60rem;
+	margin: 3rem auto;
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid black;
+	background-color: #333;
+	color: #E5E5E5;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	pre {
+		margin: 0;
+	}
+
+	.input, .output {
+		flex-grow: 1;
+		margin: 0;
+		padding-top: 0.5rem;
+		overflow-x: auto;
+
+		&::before {
+			content: attr(aria-label);
+			display: block;
+			font-size: 0.875rem;
+			margin-left: 1rem;
+			font-family: 'Fira Code', monospace;
+			text-transform: uppercase;
+		}
+	}
+
+	.output {
+		background-color: white;
+		color: #555;
+	}
+	.output pre {
+		@extend %custom-prism-light-mode;		
+	}
+}

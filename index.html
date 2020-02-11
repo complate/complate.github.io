@@ -5,6 +5,9 @@ body {
 	font-family: 'Sarabun', Trebuchet MS, Helvetica, sans-serif;
 	font-size: 1.125rem;
 }
+*, *::before, *::after {
+	box-sizing: border-box;
+}
 
 * + h2 {
 	margin-top: 5rem;
@@ -19,9 +22,12 @@ h2 {
 }
 
 .container {
-	max-width: 40rem;
-	margin: 0 auto;
 	padding: 3rem 1rem;
+}
+.container > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 40rem;
 }
 
 .title-block {
@@ -32,6 +38,8 @@ h2 {
 .title-block .container {
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: 40rem;
 }
 
 .title-block .title-area {
@@ -74,7 +82,7 @@ blockquote + p {
 img {
 	max-width: 100%;
 }
-</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>complate</h1><p>component-based templating</p><p>expressive • declarative • composable • technology-agnostic</p></div></div></div><div class="container"><p>Modern JavaScript frameworks come with batteries included and everything
+</style><link href="/assets/code.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>complate</h1><p>component-based templating</p><p>expressive • declarative • composable • technology-agnostic</p></div></div></div><div class="container"><p>Modern JavaScript frameworks come with batteries included and everything
 but the kitchen sink.</p>
 <p>We do <strong><em>a lot less</em></strong> and we think that is a good thing.</p>
 <p>complate provides a lightweight <a href="what-is-jsx.html">JSX</a>
@@ -90,12 +98,15 @@ us to get true reuse out of our components.</p>
 in that the macros are designed primarily for use in server-side rendering.
 However, complate and web components actually make a great team, allowing us to
 develop both our server-side code and our client-side code using components.</p>
+<div class="editor">
+<div class="input" aria-label="Input">
 <pre><code class="language-jsx">&lt;Card title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
     &lt;Button label=&quot;toggle&quot; /&gt;
 &lt;/Card&gt;
 </code></pre>
-<p>turns into</p>
+</div>
+<div class="output" aria-label="Output">
 <pre><code class="language-html">&lt;article class=&quot;card&quot;&gt;
     &lt;h3 class=&quot;card-title&quot;&gt;Hello World&lt;/h3&gt;
 
@@ -108,6 +119,8 @@ develop both our server-side code and our client-side code using components.</p>
     &lt;div&gt;
 &lt;/article&gt;
 </code></pre>
+</div>
+</div>
 <p>The complate approach is similar to server-side rendering in component-based
 frameworks like <a href="https://reactjs.org/">React</a> and
 <a href="https://vuejs.org/">Vue</a>, but because their implementations have to deal with

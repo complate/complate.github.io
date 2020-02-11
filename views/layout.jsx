@@ -6,6 +6,9 @@ body {
 	font-family: 'Sarabun', Trebuchet MS, Helvetica, sans-serif;
 	font-size: 1.125rem;
 }
+*, *::before, *::after {
+	box-sizing: border-box;
+}
 
 * + h2 {
 	margin-top: 5rem;
@@ -20,9 +23,12 @@ h2 {
 }
 
 .container {
-	max-width: 40rem;
-	margin: 0 auto;
 	padding: 3rem 1rem;
+}
+.container > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 40rem;
 }
 
 .title-block {
@@ -33,6 +39,8 @@ h2 {
 .title-block .container {
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: 40rem;
 }
 
 .title-block .title-area {
@@ -84,7 +92,7 @@ export default function DefaultLayout({ title }, ...children) {
 			<title>{title}</title>
 			<link href="/assets/fonts.css" rel="stylesheet" />
 			<style>{safe(CSS)}</style>
-			<link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css" />
+			<link href="/assets/code.css" rel="stylesheet" />
 		</head>
 
 		<body>

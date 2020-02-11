@@ -2,6 +2,7 @@ title: complate: declarative, component-oriented HTML templating
 h1: complate
 subtitle: component-based templating
 description: expressive • declarative • composable • technology-agnostic
+safe: false
 
 Modern JavaScript frameworks come with batteries included and everything
 but the kitchen sink.
@@ -24,6 +25,9 @@ in that the macros are designed primarily for use in server-side rendering.
 However, complate and web components actually make a great team, allowing us to
 develop both our server-side code and our client-side code using components.
 
+<div class="editor">
+<div class="input" aria-label="Input">
+
 ```jsx
 <Card title="Hello World">
     <p>lorem ipsum dolor sit amet</p>
@@ -31,7 +35,8 @@ develop both our server-side code and our client-side code using components.
 </Card>
 ```
 
-turns into
+</div>
+<div class="output" aria-label="Output">
 
 ```html
 <article class="card">
@@ -46,6 +51,9 @@ turns into
     <div>
 </article>
 ```
+
+</div>
+</div>
 
 The complate approach is similar to server-side rendering in component-based
 frameworks like [React](https://reactjs.org/) and

@@ -1,6 +1,7 @@
 title: What is JSX?
 h1: What is JSX?
 subtitle: A versatile templating language
+safe: false
 
 
 JSX Fundamentals
@@ -29,6 +30,9 @@ createElement("p", { class: "sample" }, "Hello World");
 
 And just as HTML is composable, so also is JSX:
 
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
+
 ```html
 <article class="blog-post">
     <h2>Hello World</h2>
@@ -36,7 +40,8 @@ And just as HTML is composable, so also is JSX:
 </article>
 ```
 
-becomes
+</div>
+<div class="output" aria-label="JavaScript Output">
 
 ```javascript
 createElement("article", { class: "blog-post" },
@@ -44,29 +49,39 @@ createElement("article", { class: "blog-post" },
     createElement("p", null, "lorem ipsum"));
 ```
 
+</div>
+</div>
+
 And now we can leverage the power of JSX to not only generate standardized HTML
 elements but to write our own element definitions.
 The goal is to write a declarative component in an HTML-like syntax to get all of
 the [benefits of components](rationale.html) and then translate it to an imperative
 syntax which JavaScript understands.
 
-For instance:
+Here is an example:
+
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
 
 ```jsx
-<MyComponent title="Hello World">
+<Component title="Hello World">
     <p>lorem ipsum</p>
-</MyComponent>
+</Component>
 ```
 
-will be translated to
+</div>
+<div class="output" aria-label="JavaScript Output">
 
 ```javascript
-createElement(MyComponent, { title: "Hello World" },
+createElement(Component, { title: "Hello World" },
     createElement("p", null, "lorem ipsum"));
 ```
 
+</div>
+</div>
+
 Capitalized tags signify user-defined components. Here JSX will pass
-`MyComponent` as a variable reference into the `createElement` function instead
+`Component` as a variable reference into the `createElement` function instead
 of a string.
 
 This is the point in the documentation where the JSX specification and the
@@ -94,27 +109,34 @@ JSX implementation.
 Everything which appears in a `{…}` block will be interpreted as a JavaScript
 expression.
 
+<div class="editor">
+<div class="input" aria-label="JSX definition">
+
 ```jsx
-<MyComponent title={title}>
+<Component title={title}>
     <p>{description}</p>
-</MyComponent>
+</Component>
 ```
 
-will become
+</div>
+<div class="output" aria-label="JavaScript Output">
 
 ```javascript
-createElement(MyComponent, { title: title },
+createElement(Component, { title: title },
     createElement("p", null, description));
 ```
+
+</div>
+</div>
 
 Thus we use JavaScript expressions for conditionals:
 
 ```jsx
-<MyComponent title={title || "unknown"}>
+<Component title={title || "unknown"}>
     {description && (
         <p>{description}</p>
     )}
-</MyComponent>
+</Component>
 ```
 
 Similarly, loops are expressions as well:
@@ -154,30 +176,37 @@ complate's `createElement` implementation
 
 Now we want to look at the specifics of complate's own JSX implementation.
 
-We saw before that
+This is our example from before:
+
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
 
 ```jsx
-<MyComponent title="Hello World">
+<Component title="Hello World">
     <p>lorem ipsum</p>
-<MyComponent>
+<Component>
 ```
 
-becomes
+</div>
+<div class="output" aria-label="JavaScript Output">
 
 ```javascript
-createElement(MyComponent, { title: title },
+createElement(Component, { title: title },
     createElement("p", null, description));
 ```
+
+</div>
+</div>
 
 In order for this to work, the complate `createElement` function needs
 to be available in the JavaScript scope.
 
 `createElement` in complate expects a user-defined component (called a macro)
 to be a function with the signature `(params, ...children)` and to return a JSX
-expression. An example definition for `MyComponent` could be:
+expression. An example definition for `Component` could be:
 
 ```jsx
-function MyComponent({ title }, ...children) {
+function Component({ title }, ...children) {
     return <article>
         <h2>{title}</h2>
         {children}

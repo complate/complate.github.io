@@ -5,6 +5,9 @@ body {
 	font-family: 'Sarabun', Trebuchet MS, Helvetica, sans-serif;
 	font-size: 1.125rem;
 }
+*, *::before, *::after {
+	box-sizing: border-box;
+}
 
 * + h2 {
 	margin-top: 5rem;
@@ -19,9 +22,12 @@ h2 {
 }
 
 .container {
-	max-width: 40rem;
-	margin: 0 auto;
 	padding: 3rem 1rem;
+}
+.container > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 40rem;
 }
 
 .title-block {
@@ -32,6 +38,8 @@ h2 {
 .title-block .container {
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
+	max-width: 40rem;
 }
 
 .title-block .title-area {
@@ -74,7 +82,7 @@ blockquote + p {
 img {
 	max-width: 100%;
 }
-</style><link rel="stylesheet" href="https://unpkg.com/prismjs@1.15.0/themes/prism.css"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>What is JSX?</h1><p>A versatile templating language</p><p></p></div></div></div><div class="container"><h2>JSX Fundamentals</h2>
+</style><link href="/assets/code.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>What is JSX?</h1><p>A versatile templating language</p><p></p></div></div></div><div class="container"><h2>JSX Fundamentals</h2>
 <p><a href="https://facebook.github.io/jsx/">JSX</a> is a syntax extension for JavaScript
 which allows you to embed declarative HTML-like code within JavaScript.
 It requires a
@@ -89,32 +97,42 @@ for the function signature <code>createElement(tag, params, ...children)</code>.
 <pre><code class="language-javascript">createElement(&quot;p&quot;, { class: &quot;sample&quot; }, &quot;Hello World&quot;);
 </code></pre>
 <p>And just as HTML is composable, so also is JSX:</p>
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
 <pre><code class="language-html">&lt;article class=&quot;blog-post&quot;&gt;
     &lt;h2&gt;Hello World&lt;/h2&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
 &lt;/article&gt;
 </code></pre>
-<p>becomes</p>
+</div>
+<div class="output" aria-label="JavaScript Output">
 <pre><code class="language-javascript">createElement(&quot;article&quot;, { class: &quot;blog-post&quot; },
     createElement(&quot;h2&quot;, null, &quot;Hello World&quot;),
     createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
 </code></pre>
+</div>
+</div>
 <p>And now we can leverage the power of JSX to not only generate standardized HTML
 elements but to write our own element definitions.
 The goal is to write a declarative component in an HTML-like syntax to get all of
 the <a href="rationale.html">benefits of components</a> and then translate it to an imperative
 syntax which JavaScript understands.</p>
-<p>For instance:</p>
-<pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
+<p>Here is an example:</p>
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
+<pre><code class="language-jsx">&lt;Component title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
-&lt;/MyComponent&gt;
+&lt;/Component&gt;
 </code></pre>
-<p>will be translated to</p>
-<pre><code class="language-javascript">createElement(MyComponent, { title: &quot;Hello World&quot; },
+</div>
+<div class="output" aria-label="JavaScript Output">
+<pre><code class="language-javascript">createElement(Component, { title: &quot;Hello World&quot; },
     createElement(&quot;p&quot;, null, &quot;lorem ipsum&quot;));
 </code></pre>
+</div>
+</div>
 <p>Capitalized tags signify user-defined components. Here JSX will pass
-<code>MyComponent</code> as a variable reference into the <code>createElement</code> function instead
+<code>Component</code> as a variable reference into the <code>createElement</code> function instead
 of a string.</p>
 <p>This is the point in the documentation where the JSX specification and the
 JSX implementation usually become hopelessly intertwined.
@@ -128,24 +146,32 @@ itself is provided by a JSX <em>implementation</em>. This determines how the act
 need to be defined. We will go into the specific details about the complate
 implementation below, but first we want to look at a few more details about the
 JSX implementation.</p>
-<!-- raw HTML omitted -->
+<!--
+	here I want HTML so that I can define an anchor element to the section and
+	link to it!
+-->
 <h3>Interpolation with JavaScript Expressions</h3>
 <p>Everything which appears in a <code>{…}</code> block will be interpreted as a JavaScript
 expression.</p>
-<pre><code class="language-jsx">&lt;MyComponent title={title}&gt;
+<div class="editor">
+<div class="input" aria-label="JSX definition">
+<pre><code class="language-jsx">&lt;Component title={title}&gt;
     &lt;p&gt;{description}&lt;/p&gt;
-&lt;/MyComponent&gt;
+&lt;/Component&gt;
 </code></pre>
-<p>will become</p>
-<pre><code class="language-javascript">createElement(MyComponent, { title: title },
+</div>
+<div class="output" aria-label="JavaScript Output">
+<pre><code class="language-javascript">createElement(Component, { title: title },
     createElement(&quot;p&quot;, null, description));
 </code></pre>
+</div>
+</div>
 <p>Thus we use JavaScript expressions for conditionals:</p>
-<pre><code class="language-jsx">&lt;MyComponent title={title || &quot;unknown&quot;}&gt;
+<pre><code class="language-jsx">&lt;Component title={title || &quot;unknown&quot;}&gt;
     {description &amp;&amp; (
         &lt;p&gt;{description}&lt;/p&gt;
     )}
-&lt;/MyComponent&gt;
+&lt;/Component&gt;
 </code></pre>
 <p>Similarly, loops are expressions as well:</p>
 <pre><code class="language-jsx">&lt;ul&gt;
@@ -169,21 +195,26 @@ but we can also tell Babel to use a different <code>createElement</code> functio
 library like complate.</p>
 <h2>complate’s <code>createElement</code> implementation</h2>
 <p>Now we want to look at the specifics of complate’s own JSX implementation.</p>
-<p>We saw before that</p>
-<pre><code class="language-jsx">&lt;MyComponent title=&quot;Hello World&quot;&gt;
+<p>This is our example from before:</p>
+<div class="editor">
+<div class="input" aria-label="JSX Definition">
+<pre><code class="language-jsx">&lt;Component title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum&lt;/p&gt;
-&lt;MyComponent&gt;
+&lt;Component&gt;
 </code></pre>
-<p>becomes</p>
-<pre><code class="language-javascript">createElement(MyComponent, { title: title },
+</div>
+<div class="output" aria-label="JavaScript Output">
+<pre><code class="language-javascript">createElement(Component, { title: title },
     createElement(&quot;p&quot;, null, description));
 </code></pre>
+</div>
+</div>
 <p>In order for this to work, the complate <code>createElement</code> function needs
 to be available in the JavaScript scope.</p>
 <p><code>createElement</code> in complate expects a user-defined component (called a macro)
 to be a function with the signature <code>(params, ...children)</code> and to return a JSX
-expression. An example definition for <code>MyComponent</code> could be:</p>
-<pre><code class="language-jsx">function MyComponent({ title }, ...children) {
+expression. An example definition for <code>Component</code> could be:</p>
+<pre><code class="language-jsx">function Component({ title }, ...children) {
     return &lt;article&gt;
         &lt;h2&gt;{title}&lt;/h2&gt;
         {children}
