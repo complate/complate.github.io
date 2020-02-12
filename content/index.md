@@ -4,29 +4,11 @@ subtitle: component-based templating
 description: expressive • declarative • composable • technology-agnostic
 safe: false
 
-Modern JavaScript frameworks come with batteries included and everything
-but the kitchen sink.
+complate is a JSX-based HTML templating library, providing component markup abstractions that are reusable accross multiple languages and frameworks.
 
-We do **_a lot less_** and we think that is a good thing.
-
-complate provides a lightweight [JSX](what-is-jsx.html)
-implementation to allow us to write declarative component-based templates
-(macros).
-
-Our goal is to provide a templating language that is optimized for
-server-side rendering and still allows us to get the benefits of
-[abstraction and composition](rationale.html) that come from using a
-component-based approach. complate works across many platforms, allowing
-us to get true reuse out of our components.
-
-complate differs from
-[web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
-in that the macros are designed primarily for use in server-side rendering.
-However, complate and web components actually make a great team, allowing us to
-develop both our server-side code and our client-side code using components.
 
 <div class="code-example">
-<div class="input" aria-label="Input">
+<div class="input" aria-label="You use your template like this...">
 
 ```jsx
 <Card title="Hello World">
@@ -36,7 +18,7 @@ develop both our server-side code and our client-side code using components.
 ```
 
 </div>
-<div class="output" aria-label="Output">
+<div class="output" aria-label="HTML will be generated like this...">
 
 ```html
 <article class="card">
@@ -55,34 +37,37 @@ develop both our server-side code and our client-side code using components.
 </div>
 </div>
 
-The complate approach is similar to server-side rendering in component-based
-frameworks like [React](https://reactjs.org/) and
-[Vue](https://vuejs.org/), but because their implementations have to deal with
-client-side rendering as well, they are larger and more difficult to port to
-other platforms outside of the JavaScript ecosystem.
+Stateless HTML Rendering
+------------------------
 
-This is where complate shines: Because of the
-[lean underlying implementation](https://www.innoq.com/en/blog/self-contained-custom-elements/), it is possible to write a component
-which can easily be reused across multiple projects on different platforms.
+complate focuses on efficiently generating HTML in a fire-and-forget fashion.
+We believe that [server-side rendering should be the default](https://www.innoq.com/de/articles/2020/01/javascript-in-ma%C3%9Fen/), and we created a templating library that is optimized for it.
 
-Cross-Platform Support
-----------------------
+Components
+----------
+Markup abstractions - which we call macros - encapsulate a component's internal structure.
+With this we can get all of the [benefits of abstraction and composition](rationale.html).
 
-With complate, components can be used across multiple platforms.
-[On the server](https://github.com/complate/complate-stream), we can integrate
-complate macros in different tech stacks like:
+JSX
+---
 
-* [Express](https://github.com/complate/complate-express) (Node.js)
-* [Ruby on Rails](https://github.com/complate/complate-ruby) (Ruby)
-* [Spring](https://github.com/complate/complate-spring) (Java)
-* etc.
+[JSX](what-is-jsx.html) is a templating language pioneered by React which compiles to JavaScript.
+complate users benefit from the tools available in this established ecosystem.
 
-This is particularly useful in heterogeneous software systems, where we may be
-running multiple services using different back-end technologies, but we want to
-reuse front-end components between services. If this is the case, we can
-develop a [pattern library](https://github.com/complate/complate-fractal) using
-complate and then publish our macros for reuse in other services.
+JavaScript
+----------
 
-We can also use complate
-[on the client](https://github.com/complate/complate-dom) and as a
-[static-site generator](https://github.com/complate/complate-ssg).
+complate templates use JavaScript as a scripting language.
+The complate runtime can also be embedden in almost any modern environment (e.g. V8, Nashorn, Graal) which means that it is easy to port your components across platforms.
+
+Getting Started
+---------------
+
+We currently have support for complate for developing components in a styleguide and for porting components accross several different platforms.
+[View this guide](getting-started.html) to see all of the different options that we have available.
+
+
+FAQ
+---
+
+Coming soon!
