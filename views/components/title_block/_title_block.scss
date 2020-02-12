@@ -1,0 +1,26 @@
+.title-block {
+	background-color: #36454F;
+	color: #fff;
+	
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		max-width: 40rem;
+	}
+
+	.title-area {
+		flex-basis: 5rem;
+		flex-grow: 1;
+	}
+
+	h1 {
+		font-size: 3rem;
+		font-family: 'Fira Code', monospace;
+	}
+
+	p {
+		font-size: 1.25rem;
+		color: #00f1ea;
+	}
+}

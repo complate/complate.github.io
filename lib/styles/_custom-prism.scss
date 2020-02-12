@@ -1,0 +1,43 @@
+/*
+We are still dependent on Prism to add CSS classes which we
+can style. This SCSS code styles `code` Blocks based on the Prisma
+HTML contract.
+*/
+
+%custom-prism-dark-mode {
+	background-color: #333;
+	color: #E5E5E5;
+
+	.token.punctuation,
+	.token.operator {
+		color: #E5E5E5;
+	}
+	.token.tag, .token.function {
+		color: #FB52B0;
+	}
+	.token.attr-name, .token.keyword {
+		color: #CBFD66;
+	}
+	.token.attr-value, .token.string {
+		color: #6FCFF8;
+	}	
+}
+
+%custom-prism-light-mode {
+	background-color: white;
+	color: #555;
+
+	.token.punctuation,
+	.token.operator {
+		color: #555;
+	}
+	.token.tag, .token.function {
+		color: #AC0060;
+	}
+	.token.attr-name, .token.keyword {
+		color: #71A013;
+	}
+	.token.attr-value, .token.string {
+		color: #087EB0;
+	}
+}
