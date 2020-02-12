@@ -5,6 +5,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<head>
 			<meta charset="utf-8" />
 			<title>{title}</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link href="/assets/fonts.css" rel="stylesheet" />
 			<link href="/assets/index.css" rel="stylesheet" />
 		</head>
