@@ -1,4 +1,5 @@
 import { createElement, safe } from "complate-stream";
+import { IconDefinitions } from "./components/icons"
 
 export default function DefaultLayout({ title }, ...children) {
 	return <html>
@@ -13,6 +14,7 @@ export default function DefaultLayout({ title }, ...children) {
 		<body>
 			{children}
 
+			<IconDefinitions />
 			<script src="https://unpkg.com/prismjs@1.15.0/prism.js" />
 			<script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js" />
 		</body>

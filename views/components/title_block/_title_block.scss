@@ -3,10 +3,9 @@
 	color: #fff;
 
 	.container {
+		@extend %containerify;
 		display: flex;
 		flex-wrap: wrap;
-		margin: 0 auto;
-		max-width: 40rem;
 	}
 
 	.title-area {
