@@ -42,7 +42,7 @@ Stateless HTML Rendering
 
 complate focuses on efficiently [generating HTML],
 with support for [progressive rendering](#progressive-rendering).
-This makes this templating language ideal for [server-side rendering],
+This makes complate a templating language ideal for [server-side rendering],
 though [client-side templating] (including [universal rendering](#universal-rendering)) is not uncommon.
 
 This classical approach to templating means generating HTML is a one-time "fire-and-forget" operation;
@@ -54,7 +54,7 @@ Components <span id="components"></span>
 
 Componentization is at the heart of the [benefits of abstraction and composition](rationale.html).
 complate's markup abstractions -- called [macros](#macro) -- encapsulate a component's internal HTML structures and highlight its dynamic constituents via explicit input parameters.
-This avoids error-prone copy-and-paste worksflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.
+This avoids error-prone copy-and-paste workflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.
 
 ```jsx
 function Card({ title }, ...children) {
@@ -113,7 +113,7 @@ HTTP and HTML allow [streaming pieces of content as soon as possible](https://me
 Sometimes also known as "isomorphic JavaScript", this means using the same components (macros) on both the server and the client.
 
 </dd>
-<dl>
+</dl>
 
 
 [generating HTML]: https://adactio.com/journal/16404

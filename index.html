@@ -24,14 +24,14 @@ that are <a href="#portability">reusable across multiple languages and framework
 <h2>Stateless HTML Rendering</h2>
 <p>complate focuses on efficiently <a href="https://adactio.com/journal/16404">generating HTML</a>,
 with support for <a href="#progressive-rendering">progressive rendering</a>.
-This makes this templating language ideal for <a href="https://www.innoq.com/en/articles/2020/01/javascript-in-ma%C3%9Fen/">server-side rendering</a>,
+This makes complate a templating language ideal for <a href="https://www.innoq.com/en/articles/2020/01/javascript-in-ma%C3%9Fen/">server-side rendering</a>,
 though <a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">client-side templating</a> (including <a href="#universal-rendering">universal rendering</a>) is not uncommon.</p>
 <p>This classical approach to templating means generating HTML is a one-time “fire-and-forget” operation;
 there is no component life cycle as far as complate is concerned.</p>
 <h2>Components <span id="components"></span></h2>
 <p>Componentization is at the heart of the <a href="rationale.html">benefits of abstraction and composition</a>.
 complate’s markup abstractions – called <a href="#macro">macros</a> – encapsulate a component’s internal HTML structures and highlight its dynamic constituents via explicit input parameters.
-This avoids error-prone copy-and-paste worksflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.</p>
+This avoids error-prone copy-and-paste workflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.</p>
 <pre><code class="language-jsx">function Card({ title }, ...children) {
     return &lt;article class=&quot;card&quot;&gt;
         &lt;h3 class=&quot;card-title&quot;&gt;{title}&lt;/h3&gt;
@@ -66,5 +66,5 @@ See <a href="#getting-started">Getting Started</a> for integration with server-s
 <dd>
 <p>Sometimes also known as “isomorphic JavaScript”, this means using the same components (macros) on both the server and the client.</p>
 </dd>
-<dl>
+</dl>
 </div><script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
