@@ -1,6 +1,7 @@
 .title-block {
-	background-color: #36454F;
-	color: #fff;
+	background-color: #E6E5EF;
+	color: #121020;
+	clip-path: polygon(0px 0px, 0px 100%, 20% calc(100% - 3rem), 65% calc(100% - 1rem), 100% calc(100% - 4rem), 100% 0px);
 
 	.container {
 		@extend %containerify;
@@ -12,10 +13,6 @@
 		flex-basis: 5rem;
 		flex-grow: 1;
 		margin: 0 1rem;
-
-		& > *:last-child {
-			margin-bottom: 0;
-		}
 	}
 
 	h1 {
@@ -26,6 +23,6 @@
 
 	p {
 		font-size: 1.25rem;
-		color: #00f1ea;
+		color: #443f5e;
 	}
 }
