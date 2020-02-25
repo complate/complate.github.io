@@ -1,0 +1,42 @@
+.icon-heading {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 2rem;
+  justify-content: flex-start;
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 4rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #D7FDFE;
+    border-radius: 50%;
+    margin: -0.75rem 0.25rem -0.75rem -1rem;
+
+    .icon {
+      min-width: 2rem;
+      min-height: 2rem;
+    }
+  }
+
+  &:nth-of-type(3n) .badge {
+    background-color: #FFDFE5;
+  }
+
+  &:nth-of-type(3n+1) .badge {
+    background-color: #FDD2F8;
+  }
+  
+  h2 {
+    margin: 0;
+    flex-basis: 10rem;
+    flex-grow: 1;
+    padding: 1rem 0;
+  }
+  .cont {
+    flex-basis: 35rem;
+  }
+}
