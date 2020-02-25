@@ -1,7 +1,7 @@
 title: complate: declarative, component-based HTML templating
 h1: complate
 subtitle: component-based templating
-description: expressive • declarative • portable
+description: declarative • composable • portable
 safe: false
 
 complate is a JSX-based HTML templating library.
