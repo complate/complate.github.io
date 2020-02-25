@@ -1,67 +1,70 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>complate: declarative, component-oriented HTML templating</title><meta name="viewport" content="width=device-width, initial-scale=1"><link href="/assets/fonts.css" rel="stylesheet"><link href="/assets/index.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>complate</h1><p>component-based templating</p><p>expressive • declarative • composable • technology-agnostic</p></div></div></div><div class="container"><p>Modern JavaScript frameworks come with batteries included and everything
-but the kitchen sink.</p>
-<p>We do <strong><em>a lot less</em></strong> and we think that is a good thing.</p>
-<p>complate provides a lightweight <a href="what-is-jsx.html">JSX</a>
-implementation to allow us to write declarative component-based templates
-(macros).</p>
-<p>Our goal is to provide a templating language that is optimized for
-server-side rendering and still allows us to get the benefits of
-<a href="rationale.html">abstraction and composition</a> that come from using a
-component-based approach. complate works across many platforms, allowing
-us to get true reuse out of our components.</p>
-<p>complate differs from
-<a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">web components</a>
-in that the macros are designed primarily for use in server-side rendering.
-However, complate and web components actually make a great team, allowing us to
-develop both our server-side code and our client-side code using components.</p>
+<html><head><meta charset="utf-8"><title>complate: declarative, component-based HTML templating</title><meta name="viewport" content="width=device-width, initial-scale=1"><link href="/assets/fonts.css" rel="stylesheet"><link href="/assets/index.css" rel="stylesheet"></head><body><div class="title-block"><div class="container"><img class="logo" src="complate.png"><div class="title-area"><h1>complate</h1><p>component-based templating</p><p>declarative • composable • portable</p></div></div></div><div class="container"><p>complate is a JSX-based HTML templating library.
+Components serve as <a href="#components">declarative markup abstractions</a>
+that are <a href="#portability">reusable across multiple languages and frameworks</a>.</p>
 <div class="code-example">
-<div class="input" aria-label="Input">
+<div class="input" aria-label="complate Template">
 <pre><code class="language-jsx">&lt;Card title=&quot;Hello World&quot;&gt;
     &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
-    &lt;Button label=&quot;toggle&quot; /&gt;
 &lt;/Card&gt;
 </code></pre>
 </div>
-<div class="output" aria-label="Output">
+<div class="output" aria-label="HTML Output">
 <pre><code class="language-html">&lt;article class=&quot;card&quot;&gt;
     &lt;h3 class=&quot;card-title&quot;&gt;Hello World&lt;/h3&gt;
 
     &lt;div class=&quot;card-body&quot;&gt;
         &lt;p&gt;lorem ipsum dolor sit amet&lt;/p&gt;
     &lt;/div&gt;
-
-    &lt;div class=&quot;card-controls&quot;&gt;
-        &lt;button type=&quot;button&quot;&gt;toggle&lt;/button&gt;
-    &lt;div&gt;
 &lt;/article&gt;
 </code></pre>
 </div>
 </div>
-<p>The complate approach is similar to server-side rendering in component-based
-frameworks like <a href="https://reactjs.org/">React</a> and
-<a href="https://vuejs.org/">Vue</a>, but because their implementations have to deal with
-client-side rendering as well, they are larger and more difficult to port to
-other platforms outside of the JavaScript ecosystem.</p>
-<p>This is where complate shines: Because of the
-<a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">lean underlying implementation</a>, it is possible to write a component
-which can easily be reused across multiple projects on different platforms.</p>
-<h2>Cross-Platform Support</h2>
-<p>With complate, components can be used across multiple platforms.
-<a href="https://github.com/complate/complate-stream">On the server</a>, we can integrate
-complate macros in different tech stacks like:</p>
-<ul>
-<li><a href="https://github.com/complate/complate-express">Express</a> (Node.js)</li>
-<li><a href="https://github.com/complate/complate-ruby">Ruby on Rails</a> (Ruby)</li>
-<li><a href="https://github.com/complate/complate-spring">Spring</a> (Java)</li>
-<li>etc.</li>
-</ul>
-<p>This is particularly useful in heterogeneous software systems, where we may be
-running multiple services using different back-end technologies, but we want to
-reuse front-end components between services. If this is the case, we can
-develop a <a href="https://github.com/complate/complate-fractal">pattern library</a> using
-complate and then publish our macros for reuse in other services.</p>
-<p>We can also use complate
-<a href="https://github.com/complate/complate-dom">on the client</a> and as a
-<a href="https://github.com/complate/complate-ssg">static-site generator</a>.</p>
+<p>This <code>Card</code> component is <a href="#components">implemented as a JavaScript function</a>.</p>
+<h2>Stateless HTML Rendering</h2>
+<p>complate focuses on efficiently <a href="https://adactio.com/journal/16404">generating HTML</a>,
+with support for <a href="#progressive-rendering">progressive rendering</a>.
+This makes complate a templating language ideal for <a href="https://www.innoq.com/en/articles/2020/01/javascript-in-ma%C3%9Fen/">server-side rendering</a>,
+though <a href="https://www.innoq.com/en/blog/self-contained-custom-elements/">client-side templating</a> (including <a href="#universal-rendering">universal rendering</a>) is not uncommon.</p>
+<p>This classical approach to templating means generating HTML is a one-time “fire-and-forget” operation;
+there is no component life cycle as far as complate is concerned.</p>
+<h2>Components <span id="components"></span></h2>
+<p>Componentization is at the heart of the <a href="rationale.html">benefits of abstraction and composition</a>.
+complate’s markup abstractions – called <a href="#macro">macros</a> – encapsulate a component’s internal HTML structures and highlight its dynamic constituents via explicit input parameters.
+This avoids error-prone copy-and-paste workflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.</p>
+<pre><code class="language-jsx">function Card({ title }, ...children) {
+    return &lt;article class=&quot;card&quot;&gt;
+        &lt;h3 class=&quot;card-title&quot;&gt;{title}&lt;/h3&gt;
+        &lt;div class=&quot;card-body&quot;&gt;
+            {children}
+        &lt;/div&gt;
+    &lt;/article&gt;;
+}
+</code></pre>
+<h2>JSX and JavaScript</h2>
+<p><a href="what-is-jsx.html">JSX</a> is an extension of JavaScript, pioneered by React.
+Thus we can rely on JavaScript’s extensive ecosystem for modularization, tooling, sharing code, etc.
+complate users benefit from the tools available in this established ecosystem.</p>
+<p><span id="portability"></span>
+JavaScript also enables complate’s portability: A JavaScript runtime can be embedded in almost any modern environment (e.g. V8, Nashorn, GraalVM), so macros can be reused across platforms, independent of technology choice.</p>
+<p>Note that this also means authors need basic familiarity with JavaScript and a compilation step is required to turn JSX macros into executable JavaScript.
+See <a href="#getting-started">Getting Started</a> for integration with server-side frameworks.</p>
+<h2>Getting Started <span id="getting-started"></span></h2>
+<p>We currently have support for complate for developing components in a styleguide and for porting components accross several different platforms.
+<a href="getting-started.html">View this guide</a> to see all of the different options that we have available.</p>
+<h2>Glossary</h2>
+<dl>
+<dt id="macro">macro</dt>
+<dd>
+<p>complate components – specifically their JavaScript implementation – are called macros because they typically expand to result in more complex markup structures.</p>
+</dd>
+<dt id="progressive-rendering">progressive rendering</dt>
+<dd>
+<p>HTTP and HTML allow <a href="https://medium.com/ben-and-dion/progressive-rendering-a-killer-and-under-appreciated-feature-of-the-web-97c789b608c1">streaming pieces of content as soon as possible</a>, rather than waiting for the entire page to finish rendering before serving it.</p>
+</dd>
+<dt id="universal-rendering">universal rendering</dt>
+<dd>
+<p>Sometimes also known as “isomorphic JavaScript”, this means using the same components (macros) on both the server and the client.</p>
+</dd>
+</dl>
 </div><script src="https://unpkg.com/prismjs@1.15.0/prism.js"></script><script src="https://unpkg.com/prismjs@1.15.0/components/prism-jsx.min.js"></script></body></html>
