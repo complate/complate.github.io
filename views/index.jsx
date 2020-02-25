@@ -14,7 +14,7 @@ function linkify (slug) {
 	return `/${slug}.html`;
 }
 
-function renderBreadcrumbs (slug, pageTitle) {
+function PageBreadcrumb ({ slug, pageTitle }) {
 	if (slug === "index") {
 		return null;
 	}
@@ -32,7 +32,7 @@ function render({ slug, meta, html }) {
 				<p>{meta.subtitle}</p>
 				<p>{meta.description}</p>
 			</TitleBlock>
-			{renderBreadcrumbs(slug, meta.h1)}
+			<PageBreadcrumb slug={slug} pageTitle={meta.h1} />
 			<Container>
 				{safe(html)}
 			</Container>
