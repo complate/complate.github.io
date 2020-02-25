@@ -10,7 +10,7 @@ that are [reusable across multiple languages and frameworks](#portability).
 
 
 <div class="code-example">
-<div class="input" aria-label="Complate Template">
+<div class="input" aria-label="complate Template">
 
 ```jsx
 <Card title="Hello World">
@@ -42,7 +42,7 @@ Stateless HTML Rendering
 
 complate focuses on efficiently [generating HTML],
 with support for [progressive rendering](#progressive-rendering).
-This makes the this templating language ideal for [server-side rendering],
+This makes this templating language ideal for [server-side rendering],
 though [client-side templating] (including [universal rendering](#universal-rendering)) is not uncommon.
 
 This classical approach to templating means generating HTML is a one-time "fire-and-forget" operation;
