@@ -1,7 +1,7 @@
 .title-block {
 	background-color: #36454F;
 	color: #fff;
-	
+
 	.container {
 		display: flex;
 		flex-wrap: wrap;
@@ -12,9 +12,15 @@
 	.title-area {
 		flex-basis: 5rem;
 		flex-grow: 1;
+		margin: 0 1rem;
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	h1 {
+		margin: 0;
 		font-size: 3rem;
 		font-family: 'Fira Code', monospace;
 	}
