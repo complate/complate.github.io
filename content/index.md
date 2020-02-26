@@ -36,24 +36,35 @@ that are [reusable across multiple languages and frameworks](#portability).
 
 This `Card` component is [implemented as a JavaScript function](#components).
 
-
-Stateless HTML Rendering
-------------------------
+<div class="icon-heading">
+    <div class="badge">
+        <svg class="icon" role="presentation">
+            <use href="#icon-server-heart"></use>
+        </svg>
+    </div>
+    <h2 id="stateless-rendering">Stateless HTML Rendering</h2>
+</div>
 
 complate focuses on efficiently [generating HTML],
-with support for [progressive rendering](#progressive-rendering).
+with support for [progressive rendering](faq.html#progressive-rendering).
 This makes complate a templating language ideal for [server-side rendering],
-though [client-side templating] (including [universal rendering](#universal-rendering)) is not uncommon.
+though [client-side templating] (including [universal rendering](faq.html#universal-rendering)) is not uncommon.
 
 This classical approach to templating means generating HTML is a one-time "fire-and-forget" operation;
 there is no component life cycle as far as complate is concerned.
 
 
-Components <span id="components"></span>
-----------
+<div class="icon-heading">
+    <div class="badge">
+        <svg class="icon" role="presentation">
+            <use href="#icon-component"></use>
+        </svg>
+    </div>
+    <h2 id="components">Components</h2>
+</div>
 
 Componentization is at the heart of the [benefits of abstraction and composition](rationale.html).
-complate's markup abstractions -- called [macros](#macro) -- encapsulate a component's internal HTML structures and highlight its dynamic constituents via explicit input parameters.
+complate's markup abstractions -- called [macros](faq.html#macro) -- encapsulate a component's internal HTML structures and highlight its dynamic constituents via explicit input parameters.
 This avoids error-prone copy-and-paste workflows and allows authors to focus on content by composing high-level structures, making view code more concise, declarative, and expressive.
 
 ```jsx
@@ -68,8 +79,14 @@ function Card({ title }, ...children) {
 ```
 
 
-JSX and JavaScript
-------------------
+<div class="icon-heading">
+    <div class="badge">
+        <svg class="icon" role="presentation">
+            <use href="#icon-jsx"></use>
+        </svg>
+    </div>
+    <h2 id="jsx-and-javascript">JSX and JavaScript</h2>
+</div>
 
 [JSX](what-is-jsx.html) is an extension of JavaScript, pioneered by React.
 Thus we can rely on JavaScript's extensive ecosystem for modularization, tooling, sharing code, etc.
@@ -82,38 +99,30 @@ Note that this also means authors need basic familiarity with JavaScript and a c
 See [Getting Started](#getting-started) for integration with server-side frameworks.
 
 
-Getting Started <span id="getting-started"></span>
----------------
+<div class="icon-heading">
+    <div class="badge">
+        <svg class="icon" role="presentation">
+            <use href="#icon-getting-started"></use>
+        </svg>
+    </div>
+    <h2 id="getting-started">Getting Started</h2>
+</div>
 
 We currently have support for complate for developing components in a styleguide and for porting components accross several different platforms.
 [View this guide](getting-started.html) to see all of the different options that we have available.
 
 
-Glossary
---------
+<div class="icon-heading">
+    <div class="badge">
+        <svg class="icon" role="presentation">
+            <use href="#icon-faq"></use>
+        </svg>
+    </div>
+    <h2 id="faq">Frequently Asked Questions</h2>
+</div>
 
-<dl>
-<dt id="macro">macro</dt>
-<dd>
-
-complate components -- specifically their JavaScript implementation -- are called macros because they typically expand to result in more complex markup structures.
-
-</dd>
-
-<dt id="progressive-rendering">progressive rendering</dt>
-<dd>
-
-HTTP and HTML allow [streaming pieces of content as soon as possible](https://medium.com/ben-and-dion/progressive-rendering-a-killer-and-under-appreciated-feature-of-the-web-97c789b608c1), rather than waiting for the entire page to finish rendering before serving it.
-
-</dd>
-
-<dt id="universal-rendering">universal rendering</dt>
-<dd>
-
-Sometimes also known as "isomorphic JavaScript", this means using the same components (macros) on both the server and the client.
-
-</dd>
-</dl>
+Please view our [FAQ](faq.html) to see the questions that we are most frequently asked.
+The FAQ also contains a glossary of complate terminology.
 
 
 [generating HTML]: https://adactio.com/journal/16404

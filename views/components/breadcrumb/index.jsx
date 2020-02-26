@@ -5,7 +5,7 @@ import Icon from "../icons/index"
 export function BreadcrumbLink ({ href }, ...children) {
   return <a href={href}>
     {children}
-    <Icon symbol="icon-arrow-right" />
+    <Icon symbol="arrow-right" />
   </a>;
 }
 

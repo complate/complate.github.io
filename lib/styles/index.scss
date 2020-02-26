@@ -16,6 +16,18 @@ body {
 	box-sizing: border-box;
 }
 
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+	font-size: 1.125rem;
+	margin-top: 3rem;
+}
+h4, h5, h6 {
+	margin-top: 2rem;
+	font-size: 1rem;
+}
+
 * + h2 {
 	margin-top: 5rem;
 }
@@ -58,10 +70,16 @@ dd {
 	margin-bottom: 3rem;
 }
 
+:target {
+	border-bottom: 0.5rem solid #ffdfe5;
+	color: #121020;
+}
+
 /* components */
-@import "../../views/components/icons/icons";
 @import "../../views/components/breadcrumb/breadcrumb";
 @import "../../views/components/container/container";
 @import "../../views/components/logo/logo";
+@import "../../views/components/icons/icons";
+@import "../../views/components/icon-heading/icon-heading";
 @import "../../views/components/title_block/title_block";
 @import "../../views/components/code_example/code_example";
