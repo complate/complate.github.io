@@ -26,7 +26,7 @@ function PageBreadcrumb ({ slug, pageTitle }) {
 
 function render({ slug, meta, html }) {
 	if (meta.h1) {
-		return <DefaultLayout title={meta.title}>
+		return <DefaultLayout title={meta.title} desc={meta.desc}>
 			<TitleBlock>
 				<h1>{meta.h1}</h1>
 				<p>{meta.subtitle}</p>
