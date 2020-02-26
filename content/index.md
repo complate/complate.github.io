@@ -126,8 +126,9 @@ We currently have support for complate for developing components in a styleguide
     <h2 id="faq">Frequently Asked Questions</h2>
 </div>
 
-Please view our [FAQ](faq.html) to see the questions that we are most frequently asked.
-The FAQ also contains a glossary of complate terminology.
+Please view our [FAQ](faq.html) for more details and
+a glossary of complate terminology.
+There you'll also find guidance on whether complate is suitable for your purposes.
 
 </div>
 
