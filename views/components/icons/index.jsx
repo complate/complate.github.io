@@ -38,5 +38,5 @@ export function IconDefinitions () {
 }
 
 export default ({ symbol }) => <svg class="icon" role="presentation">
-  {safe(`<use href="#icon-${symbol}" xlink:href="#icon-${symbol}"></use>`)}
+  <use href={`#icon-${symbol}`} />
 </svg>;

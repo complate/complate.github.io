@@ -39,10 +39,10 @@ This `Card` component is [implemented as a JavaScript function](#components).
 <div class="icon-heading">
     <div class="badge">
         <svg class="icon" role="presentation">
-            <use href="#icon-server-heart" xlink:href="#icon-server-heart"></use>
+            <use href="#icon-server-heart"></use>
         </svg>
     </div>
-    <h2>Stateless HTML Rendering</h2>
+    <h2 id="stateless-rendering">Stateless HTML Rendering</h2>
 </div>
 
 complate focuses on efficiently [generating HTML],
@@ -57,7 +57,7 @@ there is no component life cycle as far as complate is concerned.
 <div class="icon-heading">
     <div class="badge">
         <svg class="icon" role="presentation">
-            <use href="#icon-component" xlink:href="#icon-component"></use>
+            <use href="#icon-component"></use>
         </svg>
     </div>
     <h2 id="components">Components</h2>
@@ -82,10 +82,10 @@ function Card({ title }, ...children) {
 <div class="icon-heading">
     <div class="badge">
         <svg class="icon" role="presentation">
-            <use href="#icon-jsx" xlink:href="#icon-jsx"></use>
+            <use href="#icon-jsx"></use>
         </svg>
     </div>
-    <h2>JSX and JavaScript</h2>
+    <h2 id="jsx-and-javascript">JSX and JavaScript</h2>
 </div>
 
 [JSX](what-is-jsx.html) is an extension of JavaScript, pioneered by React.
@@ -102,10 +102,10 @@ See [Getting Started](#getting-started) for integration with server-side framewo
 <div class="icon-heading">
     <div class="badge">
         <svg class="icon" role="presentation">
-            <use href="#icon-getting-started" xlink:href="#icon-getting-started"></use>
+            <use href="#icon-getting-started"></use>
         </svg>
     </div>
-    <h2 id="components">Getting Started</h2>
+    <h2 id="getting-started">Getting Started</h2>
 </div>
 
 We currently have support for complate for developing components in a styleguide and for porting components accross several different platforms.
@@ -115,10 +115,10 @@ We currently have support for complate for developing components in a styleguide
 <div class="icon-heading">
     <div class="badge">
         <svg class="icon" role="presentation">
-            <use href="#icon-faq" xlink:href="#icon-faq"></use>
+            <use href="#icon-faq"></use>
         </svg>
     </div>
-    <h2 id="components">Frequently Asked Questions</h2>
+    <h2 id="faq">Frequently Asked Questions</h2>
 </div>
 
 Please view our [FAQ](faq.html) to see the questions that we are most frequently asked.
