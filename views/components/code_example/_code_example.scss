@@ -35,8 +35,15 @@
 	.output pre {
 		@extend %custom-prism-light-mode;		
 	}
+}
+figure {
+	margin: 5rem auto;
 
-	&--wide-margin {
-		margin: 5rem auto;
+	figcaption {
+		max-width: 40rem;
+		margin: auto;
 	}
+}
+.container figure {
+	max-width: 60rem;
 }

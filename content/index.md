@@ -9,7 +9,8 @@ Components serve as [declarative markup abstractions](#components)
 that are [reusable across multiple languages and frameworks](#portability).
 
 
-<div class="code-example code-example--wide-margin">
+<figure>
+<div class="code-example">
 <div class="input" aria-label="complate Template">
 
 ```jsx
@@ -33,8 +34,11 @@ that are [reusable across multiple languages and frameworks](#portability).
 
 </div>
 </div>
+<figcaption>
+    This <code>Card</code> component is <a href="#components">implemented as a JavaScript function</a>.
+</figcaption>
+</figure>
 
-This `Card` component is [implemented as a JavaScript function](#components).
 
 <div class="icon-heading">
     <div class="badge">

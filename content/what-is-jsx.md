@@ -238,8 +238,8 @@ is truthy:
 ```jsx
 <article>
     {description && (
-		    <p>{description}</p>
-		)}
+            <p>{description}</p>
+        )}
 <article>
 ```
 
