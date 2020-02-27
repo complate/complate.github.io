@@ -9,7 +9,7 @@ Components serve as [declarative markup abstractions](#components)
 that are [reusable across multiple languages and frameworks](#portability).
 
 
-<div class="code-example">
+<div class="code-example code-example--wide-margin">
 <div class="input" aria-label="complate Template">
 
 ```jsx

@@ -1,12 +1,13 @@
 .title-block {
-	background-color: #E6E5EF;
-	color: #121020;
+	background-color: #39364b;
+	color: white;
 	clip-path: polygon(0px 0px, 0px 100%, 20% calc(100% - 3rem), 65% calc(100% - 1rem), 100% calc(100% - 4rem), 100% 0px);
 
 	.container {
 		@extend %containerify;
 		display: flex;
 		flex-wrap: wrap;
+		padding-bottom: 4rem;
 	}
 
 	.title-area {
@@ -23,6 +24,6 @@
 
 	p {
 		font-size: 1.25rem;
-		color: #443f5e;
+		color: #29e2e8;
 	}
 }
