@@ -1,14 +1,14 @@
 .breadcrumb {
-	@extend %containerify;
-	padding: 0 1rem;
+	padding: 0.25rem 1rem;
 	font-size: 0.875rem;
 	box-sizing: content-box;
 
 	ol {
+		@extend %containerify;
 		padding: 0;
-		margin: 0;
 		list-style-type: none;
 		display: flex;
+		margin: 0 auto;
 	}
 
 	li .icon {

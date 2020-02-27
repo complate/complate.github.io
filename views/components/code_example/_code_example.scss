@@ -41,7 +41,11 @@ figure {
 
 	figcaption {
 		max-width: 40rem;
-		margin: auto;
+		margin: 0.5rem auto;
+	}
+
+	.code-example {
+		margin: 0;
 	}
 }
 .container figure {

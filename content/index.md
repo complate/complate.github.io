@@ -4,10 +4,11 @@ subtitle: component-based templating
 description: declarative • composable • portable
 safe: false
 
+<div class="container header-area">
+
 complate is a JSX-based HTML templating library.
 Components serve as [declarative markup abstractions](#components)
 that are [reusable across multiple languages and frameworks](#portability).
-
 
 <figure>
 <div class="code-example">
@@ -39,6 +40,8 @@ that are [reusable across multiple languages and frameworks](#portability).
 </figcaption>
 </figure>
 
+</div>
+<div class="container">
 
 <div class="icon-heading">
     <div class="badge">
@@ -128,6 +131,7 @@ We currently have support for complate for developing components in a styleguide
 Please view our [FAQ](faq.html) to see the questions that we are most frequently asked.
 The FAQ also contains a glossary of complate terminology.
 
+</div>
 
 [generating HTML]: https://adactio.com/journal/16404
 [server-side rendering]: https://www.innoq.com/en/articles/2020/01/javascript-in-ma%C3%9Fen/
