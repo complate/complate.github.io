@@ -10,8 +10,7 @@ complate is a JSX-based HTML templating library.
 Components serve as [declarative markup abstractions](#components)
 that are [reusable across multiple languages and frameworks](#portability).
 
-<figure>
-<div class="code-example">
+<figure class="code-sample">
 <div class="input" aria-label="complate Template">
 
 ```jsx
@@ -33,7 +32,6 @@ that are [reusable across multiple languages and frameworks](#portability).
 </article>
 ```
 
-</div>
 </div>
 <figcaption>
     This <code>Card</code> component is <a href="#components">implemented as a JavaScript function</a>.

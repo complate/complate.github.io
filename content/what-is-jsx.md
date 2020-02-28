@@ -30,7 +30,7 @@ createElement("p", { class: "sample" }, "Hello World");
 
 And just as HTML is composable, so also is JSX:
 
-<div class="code-example">
+<div class="code-sample">
 <div class="input" aria-label="JSX Definition">
 
 ```html
@@ -60,7 +60,7 @@ syntax which JavaScript understands.
 
 Here is an example:
 
-<div class="code-example">
+<div class="code-sample">
 <div class="input" aria-label="JSX Definition">
 
 ```jsx
@@ -109,7 +109,7 @@ JSX implementation.
 Everything which appears in a `{…}` block will be interpreted as a JavaScript
 expression.
 
-<div class="code-example">
+<div class="code-sample">
 <div class="input" aria-label="JSX definition">
 
 ```jsx
@@ -178,7 +178,7 @@ Now we want to look at the specifics of complate's own JSX implementation.
 
 This is our example from before:
 
-<div class="code-example">
+<div class="code-sample">
 <div class="input" aria-label="JSX Definition">
 
 ```jsx
