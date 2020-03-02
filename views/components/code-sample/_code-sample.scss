@@ -1,4 +1,6 @@
 .code-sample {
+	$border-color: #AAA;
+
 	max-width: 60rem;
 	margin: 2rem auto;
 	display: flex;
@@ -10,10 +12,12 @@
 		margin: 0;
 	}
 
-	.input, .output {
+	.input,
+	.output {
 		flex-grow: 1;
 		margin: 0;
 		padding-top: 0.5rem;
+		border: 1px solid $border-color;
 		overflow-x: auto;
 
 		&::before {
@@ -29,15 +33,14 @@
 	.input {
 		background-color: #121020;
 		color: #E5E5E5;
-		border: 1px solid #121020;
 	}
 	.output {
 		background-color: white;
 		color: #555;
-		border: 1px solid #121020;
+		border-left: none;
 	}
 	.output pre {
-		@extend %custom-prism-light-mode;		
+		@extend %custom-prism-light-mode;
 	}
 
 	figcaption {
