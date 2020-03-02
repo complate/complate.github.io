@@ -24,18 +24,27 @@ function PageBreadcrumb ({ slug, pageTitle }) {
 	</Breadcrumb>;
 }
 
+function ContainerWhenSubpage({ slug }, ...children) {
+	if (slug === "index") {
+		return children
+	}
+	return <Container>
+		{children}
+	</Container>
+}
+
 function render({ slug, meta, html }) {
 	if (meta.h1) {
 		return <DefaultLayout title={meta.title} desc={meta.desc}>
-			<TitleBlock>
+			<TitleBlock startPage={slug === "index"}>
 				<h1>{meta.h1}</h1>
 				<p>{meta.subtitle}</p>
 				<p>{meta.description}</p>
 			</TitleBlock>
 			<PageBreadcrumb slug={slug} pageTitle={meta.h1} />
-			<Container>
+			<ContainerWhenSubpage slug={slug}>
 				{safe(html)}
-			</Container>
+			</ContainerWhenSubpage>
 		</DefaultLayout>;
 	}
 
