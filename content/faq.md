@@ -10,7 +10,7 @@ Is complate Right for Me? <span id="trade-offs"></span>
 While complate has many advantages, it also introduces additional complexity:
 The use of JavaScript typically requires both a compiler (for module resolution and to transform JSX) and
 a JS runtime environment (typically provided via [the respective adaptor](getting-started.html)) --
-see [How It Works](how-it-works.html) for a detailed explanation of that interplay.
+see [Adaptors](adaptors.html) for a detailed explanation of that interplay.
 It also means [authors will need a basic understanding of JavaScript], including for debugging.
 
 In our experience, all that pays off when
@@ -20,7 +20,7 @@ e.g. due to a stand-alone pattern library and/or [self-contained systems].
 
 Otherwise a simpler, more traditional approach might be warranted,
 using a native templating engine within the respective environment.
-In a Node.js environment, that might include [server-side rendering] with JavaScript frameworks like React, Svelte etc.
+With Node.js, that might include [server-side rendering] with JavaScript frameworks like React, Svelte etc.
 Sometimes, client-side rendering might be suitable. Maybe.
 
 
