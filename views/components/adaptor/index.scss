@@ -1,0 +1,9 @@
+.adaptor {
+	display: grid;
+	grid-row: span 3;
+	grid-template-rows: subgrid;
+
+	.diagram-complate-adaptor {
+		max-width: 100%;
+	}
+}

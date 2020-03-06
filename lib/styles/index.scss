@@ -76,6 +76,8 @@ dd {
 }
 
 /* components */
+@import "../../views/components/adaptor";
+@import "../../views/components/adaptors";
 @import "../../views/components/breadcrumb/breadcrumb";
 @import "../../views/components/container/container";
 @import "../../views/components/code-sample/code-sample";
@@ -84,3 +86,4 @@ dd {
 @import "../../views/components/icons/icons";
 @import "../../views/components/icon-heading/icon-heading";
 @import "../../views/components/title_block/title_block";
+
