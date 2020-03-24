@@ -130,7 +130,10 @@ Please view our [FAQ](faq.html) for more details and
 a glossary of complate terminology.
 There you'll also find guidance on whether complate is suitable for your purposes.
 
+[![logo](complate_motion_md.gif)](complate_motion_lg.gif)
+
 </div>
+
 
 [generating HTML]: https://adactio.com/journal/16404
 [server-side rendering]: https://www.innoq.com/en/articles/2020/01/javascript-in-ma%C3%9Fen/
