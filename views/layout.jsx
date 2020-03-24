@@ -10,7 +10,7 @@ export default function DefaultLayout({ title, desc }, ...children) {
 			{desc && (
 				<meta name="description" content={desc} />
 			)}
-			<meta name="og:image" content="https://complate.org/complate.png" />
+			<meta name="og:image" content="https://complate.org/complate_banner_sm.png" />
 			<meta name="viewport" content="width=device-width, initial-scale=1" />
 			<link href="/assets/fonts.css" rel="stylesheet" />
 			<link href="/assets/index.css" rel="stylesheet" />
