@@ -1,6 +1,7 @@
 import DefaultLayout from "./layout";
 import Container from "./components/container";
 import TitleBlock from "./components/title_block";
+import Footer from "./components/footer";
 import Renderer, { createElement, safe } from "complate-stream";
 import Breadcrumb, { BreadcrumbLink, CurrentPage } from "./components/breadcrumb";
 
@@ -34,23 +35,19 @@ function ContainerWhenSubpage({ slug }, ...children) {
 }
 
 function render({ slug, meta, html }) {
-	if (meta.h1) {
-		return <DefaultLayout title={meta.title} desc={meta.desc}>
-			<TitleBlock startPage={slug === "index"}>
-				<h1>{meta.h1}</h1>
-				<p>{meta.subtitle}</p>
-				<p>{meta.description}</p>
-			</TitleBlock>
-			<PageBreadcrumb slug={slug} pageTitle={meta.h1} />
-			<ContainerWhenSubpage slug={slug}>
-				{safe(html)}
-			</ContainerWhenSubpage>
-		</DefaultLayout>;
+	if (!meta.h1) {
+		throw new Error("missing `h1` metadata");
 	}
-
-	return <DefaultLayout title={meta.title}>
-		<Container>
+	return <DefaultLayout title={meta.title} desc={meta.desc}>
+		<TitleBlock startPage={slug === "index"}>
+			<h1>{meta.h1}</h1>
+			<p>{meta.subtitle}</p>
+			<p>{meta.description}</p>
+		</TitleBlock>
+		<PageBreadcrumb slug={slug} pageTitle={meta.h1} />
+		<ContainerWhenSubpage slug={slug}>
 			{safe(html)}
-		</Container>
+		</ContainerWhenSubpage>
+		<Footer />
 	</DefaultLayout>;
 }

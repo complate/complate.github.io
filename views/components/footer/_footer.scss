@@ -1,0 +1,12 @@
+footer {
+	@extend %containerify;
+	padding: 1rem 0;
+	font-size: 0.875rem;
+	display: flex;
+	justify-content: flex-end;
+
+	a {
+		margin-left: 1rem;
+		color: hsl(205.7, 6.3%, 56.1%);
+	}
+}
