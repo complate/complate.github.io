@@ -270,6 +270,7 @@ This is exactly what we have done for the following languages:
 * [Java](https://github.com/complate/complate-java)
 * [Ruby](https://github.com/complate/complate-ruby)
 * [JavaScript](https://github.com/complate/complate-express)
+* [C++](https://github.com/tmehnert/complate-cpp)
 
 #### complate-dom
 

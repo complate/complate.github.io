@@ -107,4 +107,5 @@ include:
 * [Express](https://github.com/complate/complate-express) (Node.js)
 * [Ruby on Rails](https://github.com/complate/complate-ruby) (Ruby)
 * [Spring MVC](https://github.com/complate/complate-spring-mvc) (Java)
+* [C++](https://github.com/tmehnert/complate-cpp)
 * [Fractal](https://github.com/complate/complate-fractal)

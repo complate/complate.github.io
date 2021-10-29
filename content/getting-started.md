@@ -20,3 +20,4 @@ The following platforms currently support complate:
 * [Java](https://github.com/complate/complate-java) and an adaptor for the [Spring Framework](https://github.com/complate/complate-spring) ([sample project](https://github.com/complate/complate-sample-spring-boot))
 * complate works natively with JavaScript and we have an adaptor for the [Express Framework](https://github.com/complate/complate-sample-express) ([sample project](https://github.com/complate/complate-sample-express))
 * [Ruby on Rails](https://github.com/complate/complate-ruby) ([sample project](https://github.com/complate/complate-sample-rails))
+* [C++](https://github.com/tmehnert/complate-cpp) ([sample project](https://github.com/tmehnert/complate-sample-cpp))
