@@ -108,3 +108,4 @@ include:
 * [Ruby on Rails](https://github.com/complate/complate-ruby) (Ruby)
 * [Spring MVC](https://github.com/complate/complate-spring-mvc) (Java)
 * [Fractal](https://github.com/complate/complate-fractal)
+* [C++](https://github.com/tmehnert/complate-cpp)
