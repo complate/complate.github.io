@@ -17,8 +17,8 @@
 		"@openfonts/fira-code_all": "^1.44.8",
 		"@openfonts/sarabun_all": "^1.44.3",
 		"complate-ssg": "^0.19.4",
-		"faucet-pipeline-sass": "^1.7.1",
-		"faucet-pipeline-static": "^2.0.0",
+		"faucet-pipeline-sass": "^1.8.0",
+		"faucet-pipeline-static": "^2.1.0",
 		"nodemon": "^2.0.20",
 		"npm-run-all": "^4.1.5"
 	}
